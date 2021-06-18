@@ -6,6 +6,14 @@ theme:
     favicon: img/favicon.ico 
     icon:
         repo: fontawesome/brands/github
+    features:
+        - header.autohide
+        - navigation.top
+    palette:
+        primary: blue grey
+        accent: amber
+    font:
+        text: Roboto
 nav:
     - Home: index.md
     - 'Guides': 
