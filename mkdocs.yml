@@ -4,8 +4,12 @@ theme:
     name: material
     logo: img/stella-logo.png
     favicon: img/favicon.ico 
+    icon:
+        repo: fontawesome/brands/github
 nav:
     - Home: index.md
     - 'Guides': 
         - 'Setup guide (single server instance)': guides/single-machine.md    
     - About: about.md
+repo_url: https://github.com/stella-project
+repo_name: stella-project
