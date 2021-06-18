@@ -1,0 +1,740 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://example.com/guides/single-machine/">
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>Setup guide (single server instance) - STELLA - InfraSTructurEs for Living LAbs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setup-guide-single-server-instance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="STELLA - InfraSTructurEs for Living LAbs" class="md-header__button md-logo" aria-label="STELLA - InfraSTructurEs for Living LAbs" data-md-component="logo">
+      
+  <img src="../../img/stella-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STELLA - InfraSTructurEs for Living LAbs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setup guide (single server instance)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="STELLA - InfraSTructurEs for Living LAbs" class="md-nav__button md-logo" aria-label="STELLA - InfraSTructurEs for Living LAbs" data-md-component="logo">
+      
+  <img src="../../img/stella-logo.png" alt="logo">
+
+    </a>
+    STELLA - InfraSTructurEs for Living LAbs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Setup guide (single server instance)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Setup guide (single server instance)
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-overview" class="md-nav__link">
+    0. Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-clone-the-repositories" class="md-nav__link">
+    1. Clone the repositories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-download-the-datasets" class="md-nav__link">
+    2. Download the datasets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configure-the-stella-server-and-the-stella-app" class="md-nav__link">
+    3. Configure the stella-server and the stella-app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-build-both-docker-applications" class="md-nav__link">
+    4. Build both Docker applications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-sanity-checks" class="md-nav__link">
+    5. Sanity checks
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Sanity checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1st-sanity-check-visiting-the-dashboard" class="md-nav__link">
+    1st sanity check: visiting the dashboard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2nd-sanity-check-simulating-feedback-data-and-posting-it-via-the-rest-endpoints-of-the-stella-server" class="md-nav__link">
+    2nd sanity check: Simulating feedback data and posting it via the REST endpoints of the stella-server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3rd-sanity-check-simulating-feedback-data-and-posting-it-via-the-rest-endpoints-of-the-stella-app" class="md-nav__link">
+    3rd sanity check: Simulating feedback data and posting it via the REST endpoints of the stella-app
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-registered-users-of-the-stella-server" class="md-nav__link">
+    Pre-registered users of the stella-server
+  </a>
+  
+    <nav class="md-nav" aria-label="Pre-registered users of the stella-server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#participants" class="md-nav__link">
+    Participants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sites" class="md-nav__link">
+    Sites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrators" class="md-nav__link">
+    Administrators
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-overview" class="md-nav__link">
+    0. Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-clone-the-repositories" class="md-nav__link">
+    1. Clone the repositories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-download-the-datasets" class="md-nav__link">
+    2. Download the datasets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configure-the-stella-server-and-the-stella-app" class="md-nav__link">
+    3. Configure the stella-server and the stella-app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-build-both-docker-applications" class="md-nav__link">
+    4. Build both Docker applications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-sanity-checks" class="md-nav__link">
+    5. Sanity checks
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Sanity checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1st-sanity-check-visiting-the-dashboard" class="md-nav__link">
+    1st sanity check: visiting the dashboard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2nd-sanity-check-simulating-feedback-data-and-posting-it-via-the-rest-endpoints-of-the-stella-server" class="md-nav__link">
+    2nd sanity check: Simulating feedback data and posting it via the REST endpoints of the stella-server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3rd-sanity-check-simulating-feedback-data-and-posting-it-via-the-rest-endpoints-of-the-stella-app" class="md-nav__link">
+    3rd sanity check: Simulating feedback data and posting it via the REST endpoints of the stella-app
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-registered-users-of-the-stella-server" class="md-nav__link">
+    Pre-registered users of the stella-server
+  </a>
+  
+    <nav class="md-nav" aria-label="Pre-registered users of the stella-server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#participants" class="md-nav__link">
+    Participants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sites" class="md-nav__link">
+    Sites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrators" class="md-nav__link">
+    Administrators
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="setup-guide-single-server-instance">Setup guide (single server instance)</h1>
+<h2 id="0-overview">0. Overview</h2>
+<p>This guide is intended for setting up an instance of the <code>stella-app</code> and the <code>stella-server</code> on a <strong>single</strong> machine. Both applications have to be in the same Docker network. Only then, the <code>stella-app</code>'s HTTP requests can reach the REST-API of the <code>stella-server</code>. These instructions will guide you through the following steps:</p>
+<ol>
+<li>Clone the repositories (<code>stella-server</code>, <code>stella-app</code>)</li>
+<li>Download the datasets (extracting and placing them in the correct directory)</li>
+<li>Configure the <code>stella-server</code> and the <code>stella-app</code></li>
+<li>Build both Docker applications</li>
+<li>Sanity checks</li>
+</ol>
+<p>By the end, you should have both applications running and can simulate interactions with the stella-app, which in turn sends the feedback to the stella-server. By logging into the stella-server, you should be able to see plots in the dashboard and JSON-formatted downloads of the feedback data should be possible.</p>
+<h4 id="prerequisites">Prerequisites:</h4>
+<p>:warning: Make sure <strong><code>docker</code></strong>, <strong><code>docker-compose</code></strong> and the <strong><code>docker-sdk</code></strong> [1] are installed and executable! :warning:</p>
+<p>[1] The <strong><code>docker-sdk</code></strong> is actually only required for developing micro-services with experimental systems.</p>
+<p><strong>Start with fresh copies of the repositories and make sure previous builds of the Docker images are removed.</strong> It may not be enough to stop the containers. In some cases, previous image builds (which are not up-to-date) might be re-used.</p>
+<h3 id="1-clone-the-repositories">1. Clone the repositories</h3>
+<p>Clone the repository of the stella-server:</p>
+<pre><code>git clone https://github.com/stella-project/stella-server
+</code></pre>
+<p>Clone the repository of the stella-app:</p>
+<pre><code>git clone https://github.com/stella-project/stella-app
+</code></pre>
+<h3 id="2-download-the-datasets">2. Download the datasets</h3>
+<p>Download the datasets that are provided by LIVIVO and GESIS from the publicly shared <a href="https://th-koeln.sciebo.de/s/OBm0NLEwz1RYl9N">Sciebo folder</a>. More specifically, you should download the two folders <code>gesis-search/</code> and <code>livivo/</code> and place the uncompressed folders in the <a href="https://github.com/stella-project/stella-app/tree/master/data"><code>data/</code></a> directory of the stella-app.</p>
+<h3 id="3-configure-the-stella-server-and-the-stella-app">3. Configure the <code>stella-server</code> and the <code>stella-app</code></h3>
+<p>Both applications have a <code>config.py</code> file. Leaving the configurations untouched after the repositories have been cloned is fine - there is actually no need to change anything here. Those who want to directly dive in, can skip the following lines and can continue with the Docker builds.</p>
+<p>For the curious minds, there are seperate pages for the <code>stella-server</code>'s <a href="https://github.com/stella-project/stella-documentation/wiki/stella-server-config"><code>config.py</code></a> and the <code>stella-app</code>'s <a href="https://github.com/stella-project/stella-documentation/wiki/stella-app-config"><code>config.py</code></a>. There you will find detailed descriptions of each configuration. For now, it is interesting to have a look at the following fields of <code>stella-app</code>'s <a href="https://github.com/stella-project/stella-documentation/wiki/stella-app-config"><code>config.py</code></a>.</p>
+<ol>
+<li>Check if <code>conf['app']['DEBUG'] = False</code>.</li>
+<li>Check if <code>conf['app']['BULK_INDEX'] = True</code>. When starting the <code>stella-app</code> all experimental will start to index the data in parallel. There is no need to trigger any indexing process "manually".</li>
+<li>Check if <code>conf["app"]["STELLA_SERVER_API"] = "http://nginx/stella/api/v1"</code>. This is the address of the <code>stella-server</code> in the Docker network. Only if both applications are in the same Docker network, they can communicate.</li>
+<li>Check the credentials that are used by the <code>stella-app</code>:</li>
+</ol>
+<pre><code>conf[&quot;app&quot;][&quot;STELLA_SERVER_USER&quot;] = &quot;gesis@stella.org&quot;
+conf[&quot;app&quot;][&quot;STELLA_SERVER_PASS&quot;] = &quot;pass&quot;
+conf[&quot;app&quot;][&quot;STELLA_SERVER_USERNAME&quot;] = &quot;GESIS&quot;
+</code></pre>
+<p>Per default, GESIS is set as the user of the <code>stella-app</code>, but you can change them to LIVIVO's with the help of the credentials given below.</p>
+<h3 id="4-build-both-docker-applications">4. Build both Docker applications</h3>
+<p><strong>The <code>stella-server</code> has to be built first!</strong> Its default network will be used as our Docker network. Build the <code>stella-server</code> with:</p>
+<pre><code>cd stella-server/
+docker-compose up -d
+</code></pre>
+<p>Afterwards, the <code>stella-app</code> can be built. In the repository you will find two <code>.yml</code>-files. As part of this guide, you have to use the <a href="https://github.com/stella-project/stella-app/blob/master/docker-compose.yml"><code>docker-compose.yml</code> file</a>. It will add the <code>stella-app</code> to the Docker network of the <code>stella-server</code>. You can ignore the <code>local.yml</code> - this one is intended for a setup independent of the <code>stella-server</code>. Build the <code>stella-app</code> with:</p>
+<pre><code>cd stella-app/
+docker-compose up -d
+</code></pre>
+<p>This is the right moment to get a cup of coffee or any other beverage of your choice. It takes a while to build all the Docker images (all dependencies have to be retrieved from the web) and once the images are running in containers, the indexing will take some time.</p>
+<p>Please note that at the current stage, the <code>stella-app</code> has already too many experimental systems, so not all systems can start the indexing in parallel when starting the app on my laptop (16GB RAM, i7 4Cores@1.9GHz). Even though the <code>stella-app</code> forces all systems to build the index at once, some experimental systems will probably remain without an index, after the app has been started on lower-end devices. A current workaround for this problem is to trigger the indexing for specific experimental systems that do not have an index. This can either be done by the corresponding REST-endpoint (<code>/stella/api/v1/index/&lt;string:container_name&gt;</code>) or by visiting the dashboard of the <code>stella-app</code> and using the index button.</p>
+<h3 id="5-sanity-checks">5. Sanity checks</h3>
+<p>Once everything has been set up. We can check a few things first.</p>
+<h4 id="1st-sanity-check-visiting-the-dashboard">1st sanity check: visiting the dashboard</h4>
+<p>If you did not change anything in the configurations, the <code>stella-server</code> should be visitable at <a href="http://0.0.0.0:80">http://0.0.0.0:80</a>. Log in with one of the provided credentials below. You should able to see a list with pre-registered system at <a href="http://0.0.0.0:80/systems">http://0.0.0.0:80/systems</a> and can visit an "empty" dashboard at <a href="http://0.0.0.0:80/dashboard">http://0.0.0.0:80/dashboard</a>. In the following, we will fill up the database of the <code>stella-server</code> with some feedback data.</p>
+<h4 id="2nd-sanity-check-simulating-feedback-data-and-posting-it-via-the-rest-endpoints-of-the-stella-server">2nd sanity check: Simulating feedback data and posting it via the REST endpoints of the <code>stella-server</code></h4>
+<p>In this step, we will simulate interactions and use the <a href="https://github.com/stella-project/stella-documentation/wiki/REST-API:-STELLA-app---STELLA-server">REST endpoints</a> that are actually used by the stella-app later on. It can be seen as a pre-assessment, if the <code>stella-server</code> behaves as intended. Use the <a href="https://github.com/stella-project/stella-server/blob/master/util/simulate.py"><code>simulate.py</code></a> script and make sure, the address of the stella-server is set correctly in the script. Once executed, you can revisit the dashboard and should be provided with some visualizations. Likewise, JSON-formatted feedback data should be exportable from the systems' overview.</p>
+<h4 id="3rd-sanity-check-simulating-feedback-data-and-posting-it-via-the-rest-endpoints-of-the-stella-app">3rd sanity check: Simulating feedback data and posting it via the REST endpoints of the <code>stella-app</code></h4>
+<p>In the previous step, we were using the REST endpoints that are intended to be used by the <code>stella-app</code>. In this step, we will also simulate data and send it to the <code>stella-app</code>, which in turn, will send it to the <code>stella-server</code>. Use the <a href="https://github.com/stella-project/stella-app/blob/master/util/simulate.py"><code>simulate.py</code></a> script in the repository of the <code>stella-app</code> (make sure the address of the <code>stella-app</code> is correct). Revisit the <code>stella-server</code> and have a look at the dashboard.</p>
+<hr />
+<h2 id="pre-registered-users-of-the-stella-server">Pre-registered users of the <code>stella-server</code></h2>
+<h5 id="participants">Participants</h5>
+<table>
+<thead>
+<tr>
+<th>username</th>
+<th>email</th>
+<th>password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>participant_a</td>
+<td>participant_a@stella.org</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>participant_b</td>
+<td>participant_b@stella.org</td>
+<td>pass</td>
+</tr>
+</tbody>
+</table>
+<h5 id="sites">Sites</h5>
+<table>
+<thead>
+<tr>
+<th>username</th>
+<th>email</th>
+<th>password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GESIS</td>
+<td>gesis@stella.org</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>LIVIVO</td>
+<td>livivo@stella.org</td>
+<td>pass</td>
+</tr>
+</tbody>
+</table>
+<h5 id="administrators">Administrators</h5>
+<table>
+<thead>
+<tr>
+<th>username</th>
+<th>email</th>
+<th>password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stella-admin</td>
+<td>admin@stella.org</td>
+<td>pass</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../about/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              About
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+    
+  </body>
+</html>
