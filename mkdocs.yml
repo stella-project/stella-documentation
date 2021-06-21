@@ -17,7 +17,11 @@ theme:
 nav:
     - Home: index.md
     - 'Guides': 
-        - 'Setup guide (single server instance)': guides/single-machine.md    
+        - 'Setup guide (single server instance)': guides/single-machine.md 
+    - 'API Reference':
+        - 'Micro-service': api-reference/micro-service.md  
+        - 'Multi-container application': api-reference/mca.md 
+        - 'Central server': api-reference/server.md
     - About: about.md
 repo_url: https://github.com/stella-project
 repo_name: stella-project
