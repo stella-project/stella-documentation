@@ -10,3 +10,12 @@
 - [Multi-container application](api-reference/mca/)
 - [Central server](api-reference/server/)
 
+## Developer Information
+
+### Environment variables
+
+- [Multi-container application](develop/env-mca/)
+- [Central server](develop/env-server/)
+
+
+

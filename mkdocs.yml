@@ -22,6 +22,10 @@ nav:
         - 'Micro-service': api-reference/micro-service.md  
         - 'Multi-container application': api-reference/mca.md 
         - 'Central server': api-reference/server.md
+    - 'Developer information':
+        - 'Environment variables':
+            - 'Multi-container application': develop/env-mca.md 
+            - 'Central server': develop/env-server.md
     - About: about.md
 repo_url: https://github.com/stella-project
 repo_name: stella-project

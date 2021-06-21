@@ -1,0 +1,14 @@
+| Environment variable | Meaning |
+| --- | --- |
+| RANKSYS_LIST | | 
+| RANKSYS_PRECOM_LIST | | 
+| RANKSYS_BASE | | 
+| STELLA_SERVER_ADDRESS | | 
+| STELLA_SERVER_USER | | 
+| STELLA_SERVER_PASS | | 
+| STELLA_SERVER_USERNAME | | 
+| INTERLEAVE | | 
+| BULK_INDEX | | 
+| DELETE_SENT_SESSION | | 
+| INTERVAL_DB_CHECK | | 
+| SESSION_EXPIRATION | | 
