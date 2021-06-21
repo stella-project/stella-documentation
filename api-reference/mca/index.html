@@ -1,0 +1,1404 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://example.com/api-reference/mca/">
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>Multi-container application - STELLA - InfraSTructurEs for Living LAbs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:""}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="amber">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ranking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="STELLA - InfraSTructurEs for Living LAbs" class="md-header__button md-logo" aria-label="STELLA - InfraSTructurEs for Living LAbs" data-md-component="logo">
+      
+  <img src="../../img/stella-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STELLA - InfraSTructurEs for Living LAbs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multi-container application
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/stella-project/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    stella-project
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="STELLA - InfraSTructurEs for Living LAbs" class="md-nav__button md-logo" aria-label="STELLA - InfraSTructurEs for Living LAbs" data-md-component="logo">
+      
+  <img src="../../img/stella-logo.png" alt="logo">
+
+    </a>
+    STELLA - InfraSTructurEs for Living LAbs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/stella-project/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    stella-project
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/single-machine/" class="md-nav__link">
+        Setup guide (single server instance)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        API Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../micro-service/" class="md-nav__link">
+        Micro-service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Multi-container application
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Multi-container application
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ranking" class="md-nav__link">
+    Ranking
+  </a>
+  
+    <nav class="md-nav" aria-label="Ranking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rest-endpoint" class="md-nav__link">
+    REST endpoint:
+  </a>
+  
+    <nav class="md-nav" aria-label="REST endpoint:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-interleaved-ranking" class="md-nav__link">
+    Output (interleaved ranking):
+  </a>
+  
+    <nav class="md-nav" aria-label="Output (interleaved ranking):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_1" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-non-interleaved-ranking" class="md-nav__link">
+    Output (non-interleaved ranking):
+  </a>
+  
+    <nav class="md-nav" aria-label="Output (non-interleaved ranking):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_2" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback" class="md-nav__link">
+    Feedback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rest-endpoint_1" class="md-nav__link">
+    REST endpoint:
+  </a>
+  
+    <nav class="md-nav" aria-label="REST endpoint:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_3" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload" class="md-nav__link">
+    Payload:
+  </a>
+  
+    <nav class="md-nav" aria-label="Payload:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_4" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    Recommendations
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rest-endpoint_2" class="md-nav__link">
+    REST endpoint:
+  </a>
+  
+    <nav class="md-nav" aria-label="REST endpoint:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datasets" class="md-nav__link">
+    Datasets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_5" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publications" class="md-nav__link">
+    Publications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_6" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-interleaved-recommendation" class="md-nav__link">
+    Output (interleaved recommendation):
+  </a>
+  
+    <nav class="md-nav" aria-label="Output (interleaved recommendation):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_7" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-non-interleaved-recommendation" class="md-nav__link">
+    Output (non-interleaved recommendation):
+  </a>
+  
+    <nav class="md-nav" aria-label="Output (non-interleaved recommendation):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_8" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback_1" class="md-nav__link">
+    Feedback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rest-endpoint_3" class="md-nav__link">
+    REST endpoint:
+  </a>
+  
+    <nav class="md-nav" aria-label="REST endpoint:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_9" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_10" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing" class="md-nav__link">
+    Indexing
+  </a>
+  
+    <nav class="md-nav" aria-label="Indexing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_11" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_12" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-sessions" class="md-nav__link">
+    Exit sessions
+  </a>
+  
+    <nav class="md-nav" aria-label="Exit sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_13" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server/" class="md-nav__link">
+        Central server
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ranking" class="md-nav__link">
+    Ranking
+  </a>
+  
+    <nav class="md-nav" aria-label="Ranking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rest-endpoint" class="md-nav__link">
+    REST endpoint:
+  </a>
+  
+    <nav class="md-nav" aria-label="REST endpoint:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-interleaved-ranking" class="md-nav__link">
+    Output (interleaved ranking):
+  </a>
+  
+    <nav class="md-nav" aria-label="Output (interleaved ranking):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_1" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-non-interleaved-ranking" class="md-nav__link">
+    Output (non-interleaved ranking):
+  </a>
+  
+    <nav class="md-nav" aria-label="Output (non-interleaved ranking):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_2" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback" class="md-nav__link">
+    Feedback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rest-endpoint_1" class="md-nav__link">
+    REST endpoint:
+  </a>
+  
+    <nav class="md-nav" aria-label="REST endpoint:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_3" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload" class="md-nav__link">
+    Payload:
+  </a>
+  
+    <nav class="md-nav" aria-label="Payload:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_4" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    Recommendations
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rest-endpoint_2" class="md-nav__link">
+    REST endpoint:
+  </a>
+  
+    <nav class="md-nav" aria-label="REST endpoint:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datasets" class="md-nav__link">
+    Datasets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_5" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publications" class="md-nav__link">
+    Publications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_6" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-interleaved-recommendation" class="md-nav__link">
+    Output (interleaved recommendation):
+  </a>
+  
+    <nav class="md-nav" aria-label="Output (interleaved recommendation):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_7" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-non-interleaved-recommendation" class="md-nav__link">
+    Output (non-interleaved recommendation):
+  </a>
+  
+    <nav class="md-nav" aria-label="Output (non-interleaved recommendation):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_8" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback_1" class="md-nav__link">
+    Feedback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rest-endpoint_3" class="md-nav__link">
+    REST endpoint:
+  </a>
+  
+    <nav class="md-nav" aria-label="REST endpoint:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_9" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_10" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing" class="md-nav__link">
+    Indexing
+  </a>
+  
+    <nav class="md-nav" aria-label="Indexing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_11" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_12" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-sessions" class="md-nav__link">
+    Exit sessions
+  </a>
+  
+    <nav class="md-nav" aria-label="Exit sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation_13" class="md-nav__link">
+    Explanation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/stella-project/edit/master/docs/api-reference/mca.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Multi-container application</h1>
+                
+                <h2 id="ranking">Ranking</h2>
+<h3 id="rest-endpoint">REST endpoint:</h3>
+<p><strong>GET</strong> <code>/stella/api/v1/ranking?query=&lt;string:query&gt;&amp;page=&lt;int:page&gt;&amp;rpp=&lt;int:rpp&gt;&amp;sid=&lt;int:sid&gt;&amp;container=&lt;string:container&gt;</code>  </p>
+<h4 id="explanation">Explanation:</h4>
+<ul>
+<li><strong>query</strong>: the query string</li>
+<li><strong>page</strong>: the number of the start page (optional)</li>
+<li><strong>rpp</strong>: the number of results per page (optional)</li>
+<li><strong>container</strong>: name of the container that contains either the baseline or one of the experimental systems (optional)</li>
+<li><strong>sid</strong>: the session identifier (optional)</li>
+</ul>
+<h3 id="output-interleaved-ranking">Output (interleaved ranking):</h3>
+<pre><code>{'body': {'1': {'docid': 'M27622217', 'type': 'BASE'},
+          '2': {'docid': 'M27251231', 'type': 'EXP'},
+          '3': {'docid': 'M27692969', 'type': 'BASE'},
+          '4': {'docid': 'M26350569', 'type': 'EXP'},
+          '5': {'docid': 'M26715777', 'type': 'EXP'},
+          '6': {'docid': 'M26650940', 'type': 'BASE'},
+          '7': {'docid': 'M27098271', 'type': 'EXP'},
+          '8': {'docid': 'M28381438', 'type': 'BASE'},
+          '9': {'docid': 'M27763523', 'type': 'EXP'},
+          '10': {'docid': 'M27157745', 'type': 'BASE'},
+          '11': {'docid': 'M28066266', 'type': 'EXP'},
+          '12': {'docid': 'M26874427', 'type': 'BASE'},
+          '13': {'docid': 'M27133457', 'type': 'EXP'},
+          '14': {'docid': 'M26791355', 'type': 'BASE'},
+          '15': {'docid': 'M27157753', 'type': 'BASE'},
+          '16': {'docid': 'M27167258', 'type': 'EXP'},
+          '17': {'docid': 'M27524068', 'type': 'EXP'},
+          '18': {'docid': 'M26824628', 'type': 'BASE'},
+          '19': {'docid': 'M26967532', 'type': 'EXP'}},
+ 'header': {'container': {'base': 'rank_elastic_base', 'exp': 'rank_elastic'},
+            'page': 0,
+            'q': 'vaccine',
+            'rid': 3,
+            'rpp': 20,
+            'hits': 12312,
+            'sid': 1}}
+</code></pre>
+<h4 id="explanation_1">Explanation:</h4>
+<ul>
+<li><strong>header</strong>: header containing meta information about the returned result</li>
+<li><strong>body</strong>: body with rank positions, identifiers, and type of the corresponding system</li>
+<li><strong>docid</strong>: the document identifier</li>
+<li><strong>type</strong>: type of system can be either <code>BASE</code> or <code>EXP</code></li>
+<li><strong>container</strong>: dictionary with names of the experimental system and optional baseline system</li>
+<li><strong>page</strong>: the number of the start page</li>
+<li><strong>q</strong>: the query string</li>
+<li><strong>rid</strong>: the ranking identifier</li>
+<li><strong>rpp</strong>: the number of results per page</li>
+<li><strong>hits</strong>: the number of total hits</li>
+<li><strong>sid</strong>: the session identifier</li>
+</ul>
+<h3 id="output-non-interleaved-ranking">Output (non-interleaved ranking):</h3>
+<pre><code>{'body': {'1': {'docid': 'M27622217', 'type': 'EXP'},
+          '2': {'docid': 'M27251231', 'type': 'EXP'},
+          '3': {'docid': 'M27692969', 'type': 'EXP'},
+          '4': {'docid': 'M26350569', 'type': 'EXP'},
+          '5': {'docid': 'M26715777', 'type': 'EXP'},
+          '6': {'docid': 'M26650940', 'type': 'EXP'},
+          '7': {'docid': 'M27098271', 'type': 'EXP'},
+          '8': {'docid': 'M28381438', 'type': 'EXP'},
+          '9': {'docid': 'M27763523', 'type': 'EXP'},
+          '10': {'docid': 'M27157745', 'type': 'EXP'},
+          '11': {'docid': 'M28066266', 'type': 'EXP'},
+          '12': {'docid': 'M26874427', 'type': 'EXP'},
+          '13': {'docid': 'M27133457', 'type': 'EXP'},
+          '14': {'docid': 'M26791355', 'type': 'EXP'},
+          '15': {'docid': 'M27157753', 'type': 'EXP'},
+          '16': {'docid': 'M27167258', 'type': 'EXP'},
+          '17': {'docid': 'M27524068', 'type': 'EXP'},
+          '18': {'docid': 'M26824628', 'type': 'EXP'},
+          '19': {'docid': 'M26967532', 'type': 'EXP'}},
+ 'header': {'container': {'exp': 'rank_elastic'},
+            'page': 0,
+            'q': 'vaccine',
+            'rid': 1,
+            'rpp': 20,
+            'hits': 12312,
+            'sid': 1}}
+</code></pre>
+<h4 id="explanation_2">Explanation:</h4>
+<p>See above.</p>
+<h3 id="feedback">Feedback</h3>
+<hr />
+<h3 id="rest-endpoint_1">REST endpoint:</h3>
+<p><strong>POST</strong> <code>/stella/api/v1/ranking/rid=&lt;int:rid&gt;/feedback</code></p>
+<h4 id="explanation_3">Explanation:</h4>
+<ul>
+<li><strong>sid</strong>: the session identifier</li>
+<li><strong>rid</strong>: the ranking identifier</li>
+</ul>
+<h3 id="payload">Payload:</h3>
+<pre><code>{'clicks': {'1': {'clicked': False,
+                  'date': None,
+                  'docid': 'M26923455',
+                  'type': 'EXP'},
+            '2': {'clicked': False,
+                  'date': None,
+                  'docid': 'M25600519',
+                  'type': 'EXP'},
+            '3': {'clicked': True,
+                  'date': '2020-07-29 16:06:51',
+                  'docid': 'M27515393',
+                  'type': 'EXP'},
+            '4': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27572122',
+                  'type': 'EXP'},
+            '5': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27357208',
+                  'type': 'EXP'},
+            '6': {'clicked': True,
+                  'date': '2020-07-29 16:06:51',
+                  'docid': 'M27309042',
+                  'type': 'EXP'},
+            '7': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27237391',
+                  'type': 'EXP'},
+            '8': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27279275',
+                  'type': 'EXP'},
+            '9': {'clicked': False,
+                  'date': None,
+                  'docid': 'M26813237',
+                  'type': 'EXP'}
+            '10': {'clicked': False,
+                   'date': None,
+                   'docid': 'M27049797',
+                   'type': 'EXP'},
+            '11': {'clicked': False,
+                   'date': None,
+                   'docid': 'M27531820',
+                   'type': 'EXP'},
+            '12': {'clicked': False,
+                   'date': None,
+                   'docid': 'M27338346',
+                   'type': 'EXP'},
+            '13': {'clicked': False,
+                   'date': None,
+                   'docid': 'M27999240',
+                   'type': 'EXP'},
+            '14': {'clicked': False,
+                   'date': None,
+                   'docid': 'M26613600',
+                   'type': 'EXP'},
+            '15': {'clicked': False,
+                   'date': None,
+                   'docid': 'M27356552',
+                   'type': 'EXP'},
+            '16': {'clicked': False,
+                   'date': None,
+                   'docid': 'M27783754',
+                   'type': 'EXP'},
+            '17': {'clicked': False,
+                   'date': None,
+                   'docid': 'M27278100',
+                   'type': 'EXP'},
+            '18': {'clicked': False,
+                   'date': None,
+                   'docid': 'M27531823',
+                   'type': 'EXP'},
+            '19': {'clicked': False,
+                   'date': None,
+                   'docid': 'M26860287',
+                   'type': 'EXP'}},
+ 'end': '2020-07-29 16:12:53',
+ 'interleave': True,
+ 'start': '2020-07-29 16:06:51'}
+</code></pre>
+<h4 id="explanation_4">Explanation:</h4>
+<ul>
+<li><strong>start</strong>: time of session start, has to be provided as datetime-formatted string like 'YYYY-MM-DD HH:MM:SS'</li>
+<li><strong>interleave</strong>: boolean value indicating if the result list has been interleaved</li>
+<li><strong>end</strong>: time of session end, has to be provided as datetime-formatted string like 'YYYY-MM-DD HH:MM:SS'</li>
+<li><strong>clicks</strong>: dicitionary containing document identifiers and their corresponding clicks</li>
+<li><strong>clicked</strong>: boolean values indicating whether document has been clicked or not</li>
+<li><strong>date</strong>: time when click happend, has to be provided as datetime-formatted string like 'YYYY-MM-DD HH:MM:SS'</li>
+<li><strong>docid</strong>: the document identifier</li>
+<li><strong>system</strong>: string value indicating if the corresponding system is baseline (<code>BASE</code>) or experimental (<code>EXP</code>)</li>
+</ul>
+<h2 id="recommendations">Recommendations</h2>
+<h3 id="rest-endpoint_2">REST endpoint:</h3>
+<h4 id="datasets">Datasets</h4>
+<p><strong>GET</strong> <code>/stella/api/v1/recommendation/datasets?itemid=&lt;string:itemid&gt;&amp;page=&lt;int:page&gt;&amp;rpp=&lt;int:rpp&gt;&amp;sid=&lt;int:sid&gt;&amp;container=&lt;string:container&gt;</code>  </p>
+<h4 id="explanation_5">Explanation:</h4>
+<ul>
+<li><strong>itemid</strong>: the target item of the recommendations</li>
+<li><strong>page</strong>: the number of the start page (optional)</li>
+<li><strong>rpp</strong>: the number of results per page (optional)</li>
+<li><strong>sid</strong>: the session identifier (optional)</li>
+<li><strong>container</strong>: name of the container that contains either the baseline or one of the experimental systems (optional)</li>
+</ul>
+<h4 id="publications">Publications</h4>
+<p><strong>GET</strong> <code>/stella/api/v1/recommendation/publications?itemid=&lt;string:itemid&gt;&amp;page=&lt;int:page&gt;&amp;rpp=&lt;int:rpp&gt;&amp;sid=&lt;int:sid&gt;&amp;container=&lt;string:container&gt;</code>  </p>
+<h4 id="explanation_6">Explanation:</h4>
+<p>See above.</p>
+<h3 id="output-interleaved-recommendation">Output (interleaved recommendation):</h3>
+<pre><code>{'body': {'1': {'docid': 'M27388739', 'type': 'BASE'},
+          '2': {'docid': 'M27338344', 'type': 'EXP'},
+          '3': {'docid': 'M26207529', 'type': 'EXP'},
+          '4': {'docid': 'M27216378', 'type': 'BASE'},
+          '5': {'docid': 'M26938486', 'type': 'BASE'},
+          '6': {'docid': 'M26612070', 'type': 'EXP'},
+          '7': {'docid': 'M27641359', 'type': 'BASE'},
+          '8': {'docid': 'M27567522', 'type': 'EXP'},
+          '9': {'docid': 'M27897418', 'type': 'BASE'}},
+ 'header': {'container': {'base': 'recom_tfidf_base', 'exp': 'recom_tfidf'},
+            'itemid': 'M26923455',
+            'page': 0,
+            'rid': 4,
+            'rpp': 10,
+            'sid': 2,
+            'type': 'PUB'}}
+</code></pre>
+<h4 id="explanation_7">Explanation:</h4>
+<ul>
+<li><strong>header</strong>: header containing meta information about the returned result</li>
+<li><strong>body</strong>: body with positions, identifiers, and type of the corresponding system</li>
+<li><strong>docid</strong>: the document identifier</li>
+<li><strong>type</strong>: type of system can be either <code>BASE</code> or <code>EXP</code></li>
+<li><strong>container</strong>: dictionary with names of the experimental system and optional baseline system</li>
+<li><strong>itemid</strong>: the target item of the recommendations</li>
+<li><strong>page</strong>: the number of the start page</li>
+<li><strong>rid</strong>: the recommendation identifier</li>
+<li><strong>rpp</strong>: the number of results per page</li>
+<li><strong>sid</strong>: the session identifier</li>
+<li><strong>type</strong>: type of system can be either <code>BASE</code> or <code>EXP</code></li>
+</ul>
+<h3 id="output-non-interleaved-recommendation">Output (non-interleaved recommendation):</h3>
+<pre><code>{'body': {'1': {'docid': 'M27038470', 'type': 'EXP'},
+          '2': {'docid': 'M27342969', 'type': 'EXP'},
+          '3': {'docid': 'M26774951', 'type': 'EXP'},
+          '4': {'docid': 'M27912945', 'type': 'EXP'},
+          '5': {'docid': 'M26797943', 'type': 'EXP'},
+          '6': {'docid': 'M25359468', 'type': 'EXP'},
+          '7': {'docid': 'M26969740', 'type': 'EXP'},
+          '8': {'docid': 'M27613427', 'type': 'EXP'},
+          '9': {'docid': 'M27976545', 'type': 'EXP'}},
+ 'header': {'container': {'exp': 'recom_tfidf'},
+            'itemid': 'M26923455',
+            'page': 0,
+            'rid': 2,
+            'rpp': 10,
+            'sid': 2,
+            'type': 'PUB'}}
+</code></pre>
+<h4 id="explanation_8">Explanation:</h4>
+<p>See above.</p>
+<h3 id="feedback_1">Feedback</h3>
+<hr />
+<h3 id="rest-endpoint_3">REST endpoint:</h3>
+<p><strong>POST</strong> <code>/stella/api/v1/recommendation/rid=rid=&lt;int:rid&gt;/feedback</code></p>
+<h4 id="explanation_9">Explanation:</h4>
+<ul>
+<li><strong>rid</strong>: the recommendation identifier</li>
+</ul>
+<pre><code>{'clicks': {'1': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27160449',
+                  'type': 'EXP'},
+            '2': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27888935',
+                  'type': 'BASE'},
+            '3': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27088628',
+                  'type': 'EXP'},
+            '4': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27064543',
+                  'type': 'BASE'},
+            '5': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27717979',
+                  'type': 'EXP'},
+            '6': {'clicked': True,
+                  'date': '2020-07-29 17:11:18',
+                  'docid': 'M27077760',
+                  'type': 'BASE'},
+            '7': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27638054',
+                  'type': 'BASE'},
+            '8': {'clicked': False,
+                  'date': None,
+                  'docid': 'M26360828',
+                  'type': 'EXP'},
+            '9': {'clicked': False,
+                  'date': None,
+                  'docid': 'M27554937',
+                  'type': 'BASE'}},
+ 'end': '2020-07-29 17:59:24',
+ 'interleave': True,
+ 'start': '2020-07-29 17:11:18'}
+</code></pre>
+<h4 id="explanation_10">Explanation:</h4>
+<ul>
+<li><strong>start</strong>: time of session start, has to be provided as datetime-formatted string like 'YYYY-MM-DD HH:MM:SS'</li>
+<li><strong>interleave</strong>: boolean value indicating if the result list has been interleaved</li>
+<li><strong>end</strong>: time of session end, has to be provided as datetime-formatted string like 'YYYY-MM-DD HH:MM:SS'</li>
+<li><strong>clicks</strong>: dicitionary containing document identifiers and their corresponding clicks</li>
+<li><strong>clicked</strong>: boolean values indicating whether document has been clicked or not</li>
+<li><strong>date</strong>: time when click happend, has to be provided as datetime-formatted string like 'YYYY-MM-DD HH:MM:SS'</li>
+<li><strong>docid</strong>: the document identifier</li>
+<li><strong>system</strong>: string value indicating if the corresponding system is baseline (<code>BASE</code>) or experimental (<code>EXP</code>)</li>
+</ul>
+<h2 id="indexing">Indexing</h2>
+<p>GET <code>/stella/api/v1/index/bulk</code></p>
+<h4 id="explanation_11">Explanation:</h4>
+<p>Start indexing all containers in parallel.</p>
+<p>GET <code>/stella/api/v1/index/&lt;string:container_name&gt;</code></p>
+<h4 id="explanation_12">Explanation:</h4>
+<ul>
+<li><strong>container_name</strong>: Name of the specific container to be indexed.</li>
+</ul>
+<h2 id="exit-sessions">Exit sessions</h2>
+<p>GET <code>/stella/api/v1/sessions/&lt;int:sid&gt;/exit</code></p>
+<h4 id="explanation_13">Explanation:</h4>
+<ul>
+<li><strong>sid</strong>: Identifier of the session to be exited.</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" title="Back to top" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../micro-service/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Micro-service" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Micro-service
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../server/" class="md-footer__link md-footer__link--next" aria-label="Next: Central server" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Central server
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+    
+  </body>
+</html>
