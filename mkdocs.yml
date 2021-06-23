@@ -17,8 +17,12 @@ theme:
 nav:
     - Home: index.md
     - 'Introduction': 
-        - 'Participants': guides/participants.md
-        - 'Setup guide': guides/single-machine.md    
+        - 'Participants': 
+            - 'Tutorial: Ranking micro-service': guides/participants-ranking.md
+            - 'Tutorial: Recommendation micro-service': guides/participants-recommender.md
+            - 'Resources': guides/participants-resources.md
+        - 'Sites & Organizers':    
+            - 'Setup guide': guides/single-machine.md    
     - 'API Reference':
         - 'Micro-service': api-reference/micro-service.md  
         - 'Multi-container application': api-reference/mca.md 
