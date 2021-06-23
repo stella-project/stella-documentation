@@ -36,7 +36,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/guides/participants/</loc>
+         <loc>https://example.com/guides/participants-ranking/</loc>
+         <lastmod>2021-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://example.com/guides/participants-recommender/</loc>
+         <lastmod>2021-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://example.com/guides/participants-resources/</loc>
          <lastmod>2021-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
