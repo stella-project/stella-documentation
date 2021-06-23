@@ -1,8 +1,9 @@
 # Welcome to STELLA's documentation!
 
-## Guides
+## Introduction
 
-- [Setup guide (single server instance)](guides/single-machine/)
+- [Participants](guides/participants/)
+- [Setup guide](guides/single-machine/)
 
 ## API Reference
 

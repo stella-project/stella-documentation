@@ -16,8 +16,9 @@ theme:
         text: Roboto
 nav:
     - Home: index.md
-    - 'Guides': 
-        - 'Setup guide (single server instance)': guides/single-machine.md 
+    - 'Introduction': 
+        - 'Participants': guides/participants.md
+        - 'Setup guide': guides/single-machine.md    
     - 'API Reference':
         - 'Micro-service': api-reference/micro-service.md  
         - 'Multi-container application': api-reference/mca.md 
