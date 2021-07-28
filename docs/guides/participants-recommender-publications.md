@@ -1,11 +1,11 @@
-# How to integrate a recommender micro-service for publications
+# How to integrate a micro-service for recommending publications
 
 ## 1. Introduction
 
-The STELLA-framework enables participants to run and evaluate ranking and recommendation-systems in a Living-Lab scenario. The heart of STELLA-framework is the STELLA application, which is implemented as a a multi-container-application (MCA) by the sites (the search-engines) and handles communication between the site and participant-containers. This means every participant-system must be deployed as a docker image, which runs as a container inside STELLA application. In principle you have full freedom in choice of programming language and software tools. Your container only has to satisfy the constraints of a predefined REST-API. If you want to learn more about STELLA, please [see our blog posts](https://stella-project.org/blog/). This tutorial will guide you step-by-step through the process of integrating a ranking microservice into STELLA-infrastructure.
-You will learn how to build your own dockerized ranking-system with python.
+The STELLA-framework enables participants to run and evaluate ranking and recommender-systems in a Living-Lab scenario. The heart of STELLA-framework is the STELLA application, which is implemented as a a multi-container-application (MCA) by the sites (the search-engines) and handles communication between the site and participant-containers. This means every participant-system must be deployed as a docker image, which runs as a container inside STELLA application. In principle you have full freedom in choice of programming language and software tools. Your container only has to satisfy the constraints of a predefined REST-API. If you want to learn more about STELLA, please [see our blog posts](https://stella-project.org/blog/). This tutorial will guide you step-by-step through the process of integrating a recommendation microservice into STELLA-infrastructure.
+You will learn how to build your own dockerized recommender-system for publication with python.
 For this purpose we will use a document subset from the LIVIVO search engine.
-To give you a head start, we prepared a code template. That means, you just have to write a few lines of code to get your ranking-system running.
+To give you a head start, we prepared a code template. That means, you just have to write a few lines of code to get your recommender-system running.
 
 ## 2. Prerequisites 
 
@@ -63,11 +63,11 @@ In this tutorial we will work with a small subset of LIVIVO (30000 documents). S
 |CHEM|list of chemical substances|
 
 The dataset is provided in jsonlines-format.
-Download the LIVIVO-testset here: https://th-koeln.sciebo.de/s/OBm0NLEwz1RYl9N/download?path=%2Flivivo%2Fdocuments&files=livivo_testset.jsonl
+Download the LIVIVO-testset here: [LIVIVO test-set](https://th-koeln.sciebo.de/s/OBm0NLEwz1RYl9N/download?path=%2Farchive%2Flivivo%2Fround01%2Fdocuments_old&files=livivo_testset.jsonl)
 
 ## 4. Forking and cloning STELLA-microservice Template
 
-Before you start working on your own ranking-system, you should fork our template.  
+Before you start working on your own recommender-system, you should fork our template.  
 Navigate with your browser to our template repository https://github.com/stella-project/stella-micro-template and click the "fork"-button on the top right. This will create a fork in your personal github-account. 
 Now navigate to your working directory and run the following command to clone the forked repository to your local system.
 
