@@ -7,7 +7,7 @@
 
 - [Tutorial: Ranking micro-service](guides/participants-ranking.md)
 - [Tutorial: Recommendation micro-service for datasets](guides/participants-recommender.md)
-- [Tutorial: Recommendation micro-service for publications](guides/participants-recommender_publications.md)
+- [Tutorial: Recommendation micro-service for publications](guides/participants-recommender-publications.md)
 - [Resources](guides/participants-resources.md)
 
 ### Sites & Organizers
