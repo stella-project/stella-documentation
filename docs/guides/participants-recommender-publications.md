@@ -77,7 +77,7 @@ $ git clone https://github.com/your-username/stella-micro-template.git
 
 ## 5. Adding dataset to your local environment
 
-Please download the LIVIVO-testset here: https://th-koeln.sciebo.de/s/OBm0NLEwz1RYl9N/download?path=%2Flivivo%2Fdocuments&files=livivo_testset.jsonl  
+Please download the LIVIVO-testset here: [LIVIVO test-set](https://th-koeln.sciebo.de/s/OBm0NLEwz1RYl9N/download?path=%2Farchive%2Flivivo%2Fround01%2Fdocuments_old&files=livivo_testset.jsonl)  
 Place the file into stella-micro-template/data/livivo/datasets. If these subfolders do not exist, create them.
 
 ```.
@@ -94,13 +94,13 @@ Place the file into stella-micro-template/data/livivo/datasets. If these subfold
 To connect your system with STELLA, your container has to provide REST-endpoints according to the STELLA-interface.
 Your system should provide three endpoints.  
 First of all, your system has to implement an indexing-endpoint. This endpoint is called when your system is used for the first time. It builds a search-index from the data provided by the site.
-The ranking-endpoint must return an ordered list of document-ids in JSON format. If you provide these endpoints, your results will be integrated seamlessly into the sites’ pages.
+The recommendation-endpoint must return an ordered list of document-ids in JSON format. If you provide these endpoints, your results will be integrated seamlessly into the sites’ pages.
 The test-endpoint is, as you may have guessed, for testing if your container is up and running. It just displays the name of your container.
 
 * **GET** `/index`  
   Starts indexing data, when starting ranking-system for the first time
 
-* **GET** `/ranking?query=<string:qstr>&page=<int:pnum>&rpp=<int:rppnum>`
+* **GET** `/recommendadtion/publications?item_id=<string:item_id>&page=<int:pnum>&rpp=<int:rppnum>`
   Returns an ordered list of document-ids in JSON-Format
 
 * **GET** `/test`  
@@ -169,19 +169,19 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
 ```
 
-You might have registered some endpoints for building recommendation-systems. Since we are only building a ranking-system, please ignore these endpoints for now.
+You might have registered some endpoints for building ranking-systems. Since we are only building a recommendation-system, please ignore these endpoints for now.
 
 
 ## 7. Indexing data
 
 Let's start indexing the data from "livivo_test.jsonl".
 This file contains data in jsonlines format, which means, each line is an individual json-object, which represents a single document.
-Open the file ``systems.py``. This file contains to classes: Ranker and Recommender. As the name says, the first one is for implementing a rankings, the second one for recommender-systems. In this tutorial we will only change the Ranker-Class.
+Open the file ``systems.py``. This file contains two classes: Ranker and Recommender. As the name says, the first one is for implementing a ranking, the second one for recommender-systems. In this tutorial we will only change the Recommender-Class.
 
 At first, we will implement the code for indexing documents.  
 We will read the documents with the help of the jsonlines-package. Don't forget to import the package first. 
 For the sake of simplicity, we will just extract the unique identifier of any document and store them in the python built-in type "list".
-At a later stage, when you work with the full corpus of LIVIVO, which contains more than 60 mio documents, you should switch to a more sophisticated Index. 
+At a later stage, when you work with the full corpus of LIVIVO, which contains more than 60 mio documents, you should switch to a more sophisticated index. 
 You will change the method ```index(self)``` so it reads the documents from ```livivo_testset.jsonl```
 
 The Ranker-Class in your file ``systems.py`` should now look like this:
@@ -189,7 +189,7 @@ The Ranker-Class in your file ``systems.py`` should now look like this:
 ```python
 import jsonlines
 
-class Ranker(object):
+class Recommender(object):
 
     def __init__(self):
         self.idx = None
@@ -200,34 +200,45 @@ class Ranker(object):
             for obj in reader:
                 self.idx.append(obj['DBRECORDID'])
 
-    def rank_publications(self, query, page, rpp):
+    def recommend_datasets(self, item_id, page, rpp):
 
         itemlist = []
 
         return {
             'page': page,
             'rpp': rpp,
-            'query': query,
+            'item_id': item_id,
             'itemlist': itemlist,
             'num_found': len(itemlist)
         }
 
+    def recommend_publications(self, item_id, page, rpp):
+
+        itemlist = []
+
+        return {
+            'page': page,
+            'rpp': rpp,
+            'item_id': item_id,
+            'itemlist': itemlist,
+            'num_found': len(itemlist)
+        }
 
 ```
 
-## 8. ranking documents (shuffled)
+## 8. recommend documents (shuffled)
 
-Now we will implement our personal ranking-algorithm. To keep it simple, our ranking-algorithm picks just a number of random documents.
-This will give you an idea, how it works and enables you to implement some smart ranking-algorithms after this tutorial.
-For picking some random entries from our item-list, we can use the choice-method from the random package which is part of the python library and doese not need any installation (i.e. you do not need to add it to the requirements.txt file). You will be changing the first line of the method ```rank_publications(self, query, page, rpp)``` to get a randomized item list ```itemlist = random.choices(self.idx, k=rpp)```
+Now we will implement our personal algorithm for recommending publications. To keep it simple, our recommender-algorithm picks just a number of random documents.
+This will give you an idea, how it works and enables you to implement some smart recommender-algorithms after this tutorial.
+For picking some random entries from our item-list, we can use the choice-method from the random package which is part of the python library and does not need any installation (i.e. you do not need to add it to the requirements.txt file). You will be changing the first line of the method ```recommend_publications(self, query, page, rpp)``` to get a randomized item list ```itemlist = random.choices(self.idx, k=rpp)```
 
-The Ranker-Class in your file ``systems.py`` should now look like this:
+The Recommender-Cass in your file ``systems.py`` should now look like this:
 
 ```python
 import jsonlines
 import random
 
-class Ranker(object):
+class Recommender(object):
 
     def __init__(self):
         self.idx = None
@@ -238,14 +249,26 @@ class Ranker(object):
             for obj in reader:
                 self.idx.append(obj['DBRECORDID'])
 
-    def rank_publications(self, query, page, rpp):
+    def recommend_datasets(self, item_id, page, rpp):
+
+        itemlist = []
+
+        return {
+            'page': page,
+            'rpp': rpp,
+            'item_id': item_id,
+            'itemlist': itemlist,
+            'num_found': len(itemlist)
+        }
+
+    def recommend_publications(self, item_id, page, rpp):
 
         itemlist = random.choices(self.idx, k=rpp)
 
         return {
             'page': page,
             'rpp': rpp,
-            'query': query,
+            'item_id': item_id,
             'itemlist': itemlist,
             'num_found': len(itemlist)
         }
@@ -297,7 +320,7 @@ Now, you have to make sure, that all necessary packages are available in your vi
 ```shell
 pip install -r requirements.txt
 ```
-Don't push the folder ``venv`` which contains the virtual python environment to your github-repository. It's just for testing your Ranker on your local machine. 
+Don't push the folder ``venv`` which contains the virtual python environment to your github-repository. It's just for testing your Recommender on your local machine. 
 
 ## 10. run ranker in virtual environment
 
@@ -313,12 +336,13 @@ Now we can do some checks to see if everything works as it should.
 Please open your browser and access the following address http://0.0.0.0:5000/test (you might need to use http://localhost:5000/test in Windows).
 Your browser should reply with the message "Container is running". This means, Flask is running and serving at Port 5000. Do not worry if your try http://0.0.0.0:5000/ as that entry point is not implemented (i.e. it is expected that you will get an error).
 
-Now we want to start indexing documents with our ranker. Please access the following address with your browser http://0.0.0.0:5000/index (or http://localhost:5000/index in Windows).
+Now we want to start indexing documents with our recommender. Please access the following address with your browser http://0.0.0.0:5000/index (or http://localhost:5000/index in Windows).
 This may take some time, when indexing a big collection. After indexing was successful, your browser should replay with "Indexing done!".
 
 We are ready to send queries to our ranking-system and get results.
-Access the following address with your browser http://0.0.0.0:5000/ranking?query=test (you might need to use http://localhost:5000/ranking?query=test in Windows).
-Your browser will reply with a JSON-Document, that look like to this (itemlist will be different, because the results are randomized):
+Access the following address with your browser http://0.0.0.0:5000/recommendation/publication?item_id=M5339676 (you might need to use http://localhost:5000/ranking?query=test in Windows).
+Please make sure using an item_id that exists in the indexed dataset, otherwise you'll may not get any results.
+Your browser will reply with a JSON-Document, that looks like this (itemlist will be different, because the results are randomized):
 
 ```JSON
 {
@@ -353,7 +377,7 @@ Your browser will reply with a JSON-Document, that look like to this (itemlist w
 
 Congratulations! Your ranker is running! We can now start to build a dockerized version and run unit-tests!
 
-## 11. Build docker-contaner and run unit-tests
+## 11. Build docker-container and run unit-tests
 
 You are now ready to build your ranker as a docker-container and run unit-tests to check if everything is working as expected, before pushing your code back to github.
 
@@ -375,12 +399,12 @@ $ python docker_build_run.py
 Open your browser and please verifiy, if the endpoints are accessible:
 - http://0.0.0.0:5000/test (http://localhost:5000/test in Windows)
 - http://0.0.0.0:5000/index (http://localhost:5000/index in Windows)
-- http://0.0.0.0:5000/ranking?query=test (http://localhost:5000/ranking?query=test in Windows)
+- http://0.0.0.0:5000/recommendation/publications?item_id=M8498126 (http://localhost:5000/recommendation/publications?item_id=M8498126 in Windows)
 
 Now we can run the unit-tests:
 
 ```shell
-$ python test_ranking.py 
+$ python test_recommendation_publications.py 
 ```
 
 This will run 6 different tests, which your container has to pass, before it can be integrated into STELLA
@@ -409,4 +433,4 @@ Update remote branch with local commit.
 git push origin main
 ```
 
-Your ranker is now ready for integration into the STELLA-infrastructure. Please make sure, that the visibility of your repository is set to "public".
+Your recommender-system is now ready for integration into the STELLA-infrastructure. Please make sure, that the visibility of your repository is set to "public".
