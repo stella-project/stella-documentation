@@ -5,26 +5,26 @@
 
 ### Participants
 
-- [Tutorial: Ranking micro-service](guides/participants-ranking/)
-- [Tutorial: Recommendation micro-service](guides/participants-recommender/)
-- [Resources](guides/participants-resources/)
+- [Tutorial: Ranking micro-service](guides/participants-ranking.md)
+- [Tutorial: Recommendation micro-service](guides/participants-recommender.md)
+- [Resources](guides/participants-resources.md)
 
 ### Sites & Organizers
 
-- [Setup guide](guides/single-machine/)
+- [Setup guide](guides/single-machine.md)
 
 ## API Reference
 
-- [Micro-service](api-reference/micro-service/)
-- [Multi-container application](api-reference/mca/)
-- [Central server](api-reference/server/)
+- [Micro-service](api-reference/micro-service.md)
+- [Multi-container application](api-reference/mca.md)
+- [Central server](api-reference/server.md)
 
 ## Developer Information
 
 ### Environment variables
 
-- [Multi-container application](develop/env-mca/)
-- [Central server](develop/env-server/)
+- [Multi-container application](develop/env-mca.md)
+- [Central server](develop/env-server.md)
 
 
 
