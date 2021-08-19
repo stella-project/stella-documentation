@@ -236,6 +236,7 @@ See above.
             'page': 0,
             'rid': 4,
             'rpp': 10,
+            'hits': 24,
             'sid': 2,
             'type': 'PUB'}}
 ```
@@ -251,6 +252,7 @@ See above.
 - **page**: the number of the start page
 - **rid**: the recommendation identifier
 - **rpp**: the number of results per page
+- **hits**: the number of total hits
 - **sid**: the session identifier
 - **type**: type of system can be either `BASE` or `EXP`
 
@@ -271,6 +273,7 @@ See above.
             'page': 0,
             'rid': 2,
             'rpp': 10,
+            'hits': 11,
             'sid': 2,
             'type': 'PUB'}}
 ```
