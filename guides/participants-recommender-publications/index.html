@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://example.com/guides/participants-ranking/">
+        <link rel="canonical" href="https://example.com/guides/participants-recommender-publications/">
       
       <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
     
     
       
-        <title>Tutorial: Ranking micro-service - STELLA - InfraSTructurEs for Living LAbs</title>
+        <title>How to integrate a micro-service for recommending publications - STELLA - InfraSTructurEs for Living LAbs</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-integrate-a-ranking-micro-service" class="md-skip">
+        <a href="#how-to-integrate-a-micro-service-for-recommending-publications" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tutorial: Ranking micro-service
+              How to integrate a micro-service for recommending publications
             
           </span>
         </div>
@@ -218,14 +218,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
@@ -246,14 +244,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
       
       
       
@@ -274,129 +270,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Tutorial: Ranking micro-service
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../participants-ranking/" class="md-nav__link">
         Tutorial: Ranking micro-service
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-introduction" class="md-nav__link">
-    1. Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-prerequisites" class="md-nav__link">
-    2. Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-livivo-dataset" class="md-nav__link">
-    3. LIVIVO Dataset
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-forking-and-cloning-stella-microservice-template" class="md-nav__link">
-    4. Forking and cloning STELLA-microservice Template
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-adding-dataset-to-your-local-environment" class="md-nav__link">
-    5. Adding dataset to your local environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-rest-endpoints-with-flask" class="md-nav__link">
-    6. REST-Endpoints with Flask
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-indexing-data" class="md-nav__link">
-    7. Indexing data
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-ranking-documents-shuffled" class="md-nav__link">
-    8. ranking documents (shuffled)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-setup-virtual-environment" class="md-nav__link">
-    9. setup virtual environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-run-ranker-in-virtual-environment" class="md-nav__link">
-    10. run ranker in virtual environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-build-docker-contaner-and-run-unit-tests" class="md-nav__link">
-    11. Build docker-contaner and run unit-tests
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-push-your-changes-to-github" class="md-nav__link">
-    12. push your changes to github
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -752,8 +630,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-ranking-documents-shuffled" class="md-nav__link">
-    8. ranking documents (shuffled)
+  <a href="#8-recommend-documents-shuffled" class="md-nav__link">
+    8. recommend documents (shuffled)
   </a>
   
 </li>
@@ -773,8 +651,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-build-docker-contaner-and-run-unit-tests" class="md-nav__link">
-    11. Build docker-contaner and run unit-tests
+  <a href="#11-build-docker-container-and-run-unit-tests" class="md-nav__link">
+    11. Build docker-container and run unit-tests
   </a>
   
 </li>
@@ -798,17 +676,17 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/stella-project/stella-documentation/tree/master/docs/guides/participants-ranking.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/stella-project/stella-documentation/tree/master/docs/guides/participants-recommender-publications.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="how-to-integrate-a-ranking-micro-service">How to integrate a ranking micro-service</h1>
+<h1 id="how-to-integrate-a-micro-service-for-recommending-publications">How to integrate a micro-service for recommending publications</h1>
 <h2 id="1-introduction">1. Introduction</h2>
-<p>The STELLA-framework enables participants to run and evaluate ranking and recommendation-systems in a Living-Lab scenario. The heart of STELLA-framework is the STELLA application, which is implemented as a a multi-container-application (MCA) by the sites (the search-engines) and handles communication between the site and participant-containers. This means every participant-system must be deployed as a docker image, which runs as a container inside STELLA application. In principle you have full freedom in choice of programming language and software tools. Your container only has to satisfy the constraints of a predefined REST-API. If you want to learn more about STELLA, please <a href="https://stella-project.org/blog/">see our blog posts</a>. This tutorial will guide you step-by-step through the process of integrating a ranking microservice into STELLA-infrastructure.
-You will learn how to build your own dockerized ranking-system with python.
+<p>The STELLA-framework enables participants to run and evaluate ranking and recommender-systems in a Living-Lab scenario. The heart of STELLA-framework is the STELLA application, which is implemented as a a multi-container-application (MCA) by the sites (the search-engines) and handles communication between the site and participant-containers. This means every participant-system must be deployed as a docker image, which runs as a container inside STELLA application. In principle you have full freedom in choice of programming language and software tools. Your container only has to satisfy the constraints of a predefined REST-API. If you want to learn more about STELLA, please <a href="https://stella-project.org/blog/">see our blog posts</a>. This tutorial will guide you step-by-step through the process of integrating a recommendation microservice into STELLA-infrastructure.
+You will learn how to build your own dockerized recommender-system for publication with python.
 For this purpose we will use a document subset from the LIVIVO search engine.
-To give you a head start, we prepared a code template. That means, you just have to write a few lines of code to get your ranking-system running.</p>
+To give you a head start, we prepared a code template. That means, you just have to write a few lines of code to get your recommender-system running.</p>
 <h2 id="2-prerequisites">2. Prerequisites</h2>
 <p>Before starting this tutorial, make sure all requirements in the <a href="https://github.com/stella-project/stella-micro-template/blob/master/README.md#requirements">README.md</a> are fulfilled.</p>
 <!---
@@ -943,15 +821,15 @@ In this tutorial we will work with a small subset of LIVIVO (30000 documents). S
 </tbody>
 </table>
 <p>The dataset is provided in jsonlines-format.
-Download the LIVIVO-testset here: https://th-koeln.sciebo.de/s/OBm0NLEwz1RYl9N/download?path=%2Flivivo%2Fdocuments&amp;files=livivo_testset.jsonl</p>
+Download the LIVIVO-testset here: <a href="https://th-koeln.sciebo.de/s/OBm0NLEwz1RYl9N/download?path=%2Farchive%2Flivivo%2Fround01%2Fdocuments_old&amp;files=livivo_testset.jsonl">LIVIVO test-set</a></p>
 <h2 id="4-forking-and-cloning-stella-microservice-template">4. Forking and cloning STELLA-microservice Template</h2>
-<p>Before you start working on your own ranking-system, you should fork our template.<br />
+<p>Before you start working on your own recommender-system, you should fork our template.<br />
 Navigate with your browser to our template repository https://github.com/stella-project/stella-micro-template and click the "fork"-button on the top right. This will create a fork in your personal github-account. 
 Now navigate to your working directory and run the following command to clone the forked repository to your local system.</p>
 <pre><code class="language-bash">$ git clone https://github.com/your-username/stella-micro-template.git
 </code></pre>
 <h2 id="5-adding-dataset-to-your-local-environment">5. Adding dataset to your local environment</h2>
-<p>Please download the LIVIVO-testset here: https://th-koeln.sciebo.de/s/OBm0NLEwz1RYl9N/download?path=%2Flivivo%2Fdocuments&amp;files=livivo_testset.jsonl<br />
+<p>Please download the LIVIVO-testset here: <a href="https://th-koeln.sciebo.de/s/OBm0NLEwz1RYl9N/download?path=%2Farchive%2Flivivo%2Fround01%2Fdocuments_old&amp;files=livivo_testset.jsonl">LIVIVO test-set</a><br />
 Place the file into stella-micro-template/data/livivo/datasets. If these subfolders do not exist, create them.</p>
 <pre><code>├── stella-micro-template
 │   ├── data
@@ -963,7 +841,7 @@ Place the file into stella-micro-template/data/livivo/datasets. If these subfold
 <p>To connect your system with STELLA, your container has to provide REST-endpoints according to the STELLA-interface.
 Your system should provide three endpoints.<br />
 First of all, your system has to implement an indexing-endpoint. This endpoint is called when your system is used for the first time. It builds a search-index from the data provided by the site.
-The ranking-endpoint must return an ordered list of document-ids in JSON format. If you provide these endpoints, your results will be integrated seamlessly into the sites’ pages.
+The recommendation-endpoint must return an ordered list of document-ids in JSON format. If you provide these endpoints, your results will be integrated seamlessly into the sites’ pages.
 The test-endpoint is, as you may have guessed, for testing if your container is up and running. It just displays the name of your container.</p>
 <ul>
 <li>
@@ -971,7 +849,7 @@ The test-endpoint is, as you may have guessed, for testing if your container is 
   Starts indexing data, when starting ranking-system for the first time</p>
 </li>
 <li>
-<p><strong>GET</strong> <code>/ranking?query=&lt;string:qstr&gt;&amp;page=&lt;int:pnum&gt;&amp;rpp=&lt;int:rppnum&gt;</code>
+<p><strong>GET</strong> <code>/recommendadtion/publications?item_id=&lt;string:item_id&gt;&amp;page=&lt;int:pnum&gt;&amp;rpp=&lt;int:rppnum&gt;</code>
   Returns an ordered list of document-ids in JSON-Format</p>
 </li>
 <li>
@@ -1038,20 +916,20 @@ def rec_pub():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
 </code></pre>
-<p>You might have registered some endpoints for building recommendation-systems. Since we are only building a ranking-system, please ignore these endpoints for now.</p>
+<p>You might have registered some endpoints for building ranking-systems. Since we are only building a recommendation-system, please ignore these endpoints for now.</p>
 <h2 id="7-indexing-data">7. Indexing data</h2>
 <p>Let's start indexing the data from "livivo_test.jsonl".
 This file contains data in jsonlines format, which means, each line is an individual json-object, which represents a single document.
-Open the file <code>systems.py</code>. This file contains to classes: Ranker and Recommender. As the name says, the first one is for implementing a rankings, the second one for recommender-systems. In this tutorial we will only change the Ranker-Class.</p>
+Open the file <code>systems.py</code>. This file contains two classes: Ranker and Recommender. As the name says, the first one is for implementing a ranking, the second one for recommender-systems. In this tutorial we will only change the Recommender-Class.</p>
 <p>At first, we will implement the code for indexing documents.<br />
 We will read the documents with the help of the jsonlines-package. Don't forget to import the package first. 
 For the sake of simplicity, we will just extract the unique identifier of any document and store them in the python built-in type "list".
-At a later stage, when you work with the full corpus of LIVIVO, which contains more than 60 mio documents, you should switch to a more sophisticated Index. 
+At a later stage, when you work with the full corpus of LIVIVO, which contains more than 60 mio documents, you should switch to a more sophisticated index. 
 You will change the method <code>index(self)</code> so it reads the documents from <code>livivo_testset.jsonl</code></p>
 <p>The Ranker-Class in your file <code>systems.py</code> should now look like this:</p>
 <pre><code class="language-python">import jsonlines
 
-class Ranker(object):
+class Recommender(object):
 
     def __init__(self):
         self.idx = None
@@ -1062,29 +940,40 @@ class Ranker(object):
             for obj in reader:
                 self.idx.append(obj['DBRECORDID'])
 
-    def rank_publications(self, query, page, rpp):
+    def recommend_datasets(self, item_id, page, rpp):
 
         itemlist = []
 
         return {
             'page': page,
             'rpp': rpp,
-            'query': query,
+            'item_id': item_id,
             'itemlist': itemlist,
             'num_found': len(itemlist)
         }
 
+    def recommend_publications(self, item_id, page, rpp):
+
+        itemlist = []
+
+        return {
+            'page': page,
+            'rpp': rpp,
+            'item_id': item_id,
+            'itemlist': itemlist,
+            'num_found': len(itemlist)
+        }
 
 </code></pre>
-<h2 id="8-ranking-documents-shuffled">8. ranking documents (shuffled)</h2>
-<p>Now we will implement our personal ranking-algorithm. To keep it simple, our ranking-algorithm picks just a number of random documents.
-This will give you an idea, how it works and enables you to implement some smart ranking-algorithms after this tutorial.
-For picking some random entries from our item-list, we can use the choice-method from the random package which is part of the python library and doese not need any installation (i.e. you do not need to add it to the requirements.txt file). You will be changing the first line of the method <code>rank_publications(self, query, page, rpp)</code> to get a randomized item list <code>itemlist = random.choices(self.idx, k=rpp)</code></p>
-<p>The Ranker-Class in your file <code>systems.py</code> should now look like this:</p>
+<h2 id="8-recommend-documents-shuffled">8. recommend documents (shuffled)</h2>
+<p>Now we will implement our personal algorithm for recommending publications. To keep it simple, our recommender-algorithm picks just a number of random documents.
+This will give you an idea, how it works and enables you to implement some smart recommender-algorithms after this tutorial.
+For picking some random entries from our item-list, we can use the choice-method from the random package which is part of the python library and does not need any installation (i.e. you do not need to add it to the requirements.txt file). You will be changing the first line of the method <code>recommend_publications(self, query, page, rpp)</code> to get a randomized item list <code>itemlist = random.choices(self.idx, k=rpp)</code></p>
+<p>The Recommender-Cass in your file <code>systems.py</code> should now look like this:</p>
 <pre><code class="language-python">import jsonlines
 import random
 
-class Ranker(object):
+class Recommender(object):
 
     def __init__(self):
         self.idx = None
@@ -1095,14 +984,26 @@ class Ranker(object):
             for obj in reader:
                 self.idx.append(obj['DBRECORDID'])
 
-    def rank_publications(self, query, page, rpp):
+    def recommend_datasets(self, item_id, page, rpp):
+
+        itemlist = []
+
+        return {
+            'page': page,
+            'rpp': rpp,
+            'item_id': item_id,
+            'itemlist': itemlist,
+            'num_found': len(itemlist)
+        }
+
+    def recommend_publications(self, item_id, page, rpp):
 
         itemlist = random.choices(self.idx, k=rpp)
 
         return {
             'page': page,
             'rpp': rpp,
-            'query': query,
+            'item_id': item_id,
             'itemlist': itemlist,
             'num_found': len(itemlist)
         }
@@ -1136,7 +1037,7 @@ To activate and work with your virtual python environment, please run this comma
 <p>Now, you have to make sure, that all necessary packages are available in your virtual python environment.</p>
 <pre><code class="language-shell">pip install -r requirements.txt
 </code></pre>
-<p>Don't push the folder <code>venv</code> which contains the virtual python environment to your github-repository. It's just for testing your Ranker on your local machine. </p>
+<p>Don't push the folder <code>venv</code> which contains the virtual python environment to your github-repository. It's just for testing your Recommender on your local machine. </p>
 <h2 id="10-run-ranker-in-virtual-environment">10. run ranker in virtual environment</h2>
 <p>In your activated virtual environment, start the application.</p>
 <pre><code class="language-shell">$ python app.py
@@ -1145,11 +1046,12 @@ To activate and work with your virtual python environment, please run this comma
 Now we can do some checks to see if everything works as it should.</p>
 <p>Please open your browser and access the following address http://0.0.0.0:5000/test (you might need to use http://localhost:5000/test in Windows).
 Your browser should reply with the message "Container is running". This means, Flask is running and serving at Port 5000. Do not worry if your try http://0.0.0.0:5000/ as that entry point is not implemented (i.e. it is expected that you will get an error).</p>
-<p>Now we want to start indexing documents with our ranker. Please access the following address with your browser http://0.0.0.0:5000/index (or http://localhost:5000/index in Windows).
+<p>Now we want to start indexing documents with our recommender. Please access the following address with your browser http://0.0.0.0:5000/index (or http://localhost:5000/index in Windows).
 This may take some time, when indexing a big collection. After indexing was successful, your browser should replay with "Indexing done!".</p>
 <p>We are ready to send queries to our ranking-system and get results.
-Access the following address with your browser http://0.0.0.0:5000/ranking?query=test (you might need to use http://localhost:5000/ranking?query=test in Windows).
-Your browser will reply with a JSON-Document, that look like to this (itemlist will be different, because the results are randomized):</p>
+Access the following address with your browser http://0.0.0.0:5000/recommendation/publication?item_id=M5339676 (you might need to use http://localhost:5000/ranking?query=test in Windows).
+Please make sure using an item_id that exists in the indexed dataset, otherwise you'll may not get any results.
+Your browser will reply with a JSON-Document, that looks like this (itemlist will be different, because the results are randomized):</p>
 <pre><code class="language-JSON">{
   &quot;itemlist&quot;: [
     &quot;M7064959&quot;, 
@@ -1180,7 +1082,7 @@ Your browser will reply with a JSON-Document, that look like to this (itemlist w
 }
 </code></pre>
 <p>Congratulations! Your ranker is running! We can now start to build a dockerized version and run unit-tests!</p>
-<h2 id="11-build-docker-contaner-and-run-unit-tests">11. Build docker-contaner and run unit-tests</h2>
+<h2 id="11-build-docker-container-and-run-unit-tests">11. Build docker-container and run unit-tests</h2>
 <p>You are now ready to build your ranker as a docker-container and run unit-tests to check if everything is working as expected, before pushing your code back to github.</p>
 <p>Navigate to the folder <code>test</code>.
 Make sure, you still have your virtual environment activated and stopped your ranking application.
@@ -1194,9 +1096,9 @@ Please run the python-script "docker_build_run.py".</p>
 <p>Open your browser and please verifiy, if the endpoints are accessible:
 - http://0.0.0.0:5000/test (http://localhost:5000/test in Windows)
 - http://0.0.0.0:5000/index (http://localhost:5000/index in Windows)
-- http://0.0.0.0:5000/ranking?query=test (http://localhost:5000/ranking?query=test in Windows)</p>
+- http://0.0.0.0:5000/recommendation/publications?item_id=M8498126 (http://localhost:5000/recommendation/publications?item_id=M8498126 in Windows)</p>
 <p>Now we can run the unit-tests:</p>
-<pre><code class="language-shell">$ python test_ranking.py 
+<pre><code class="language-shell">$ python test_recommendation_publications.py 
 </code></pre>
 <p>This will run 6 different tests, which your container has to pass, before it can be integrated into STELLA
 The Script should print the message "OK". If you are using Windows, make sure you target 'localhost' rather than '0.0.0.0' on the IP variable in the test (i.e. <code>IP = 'localhost'</code> for Windows; for other OS <code>IP = '0.0.0.0.</code> should work).</p>
@@ -1211,7 +1113,7 @@ The Script should print the message "OK". If you are using Windows, make sure yo
 <p>Update remote branch with local commit.</p>
 <pre><code class="language-shell">git push origin main
 </code></pre>
-<p>Your ranker is now ready for integration into the STELLA-infrastructure. Please make sure, that the visibility of your repository is set to "public".</p>
+<p>Your recommender-system is now ready for integration into the STELLA-infrastructure. Please make sure, that the visibility of your repository is set to "public".</p>
 
               
             </article>
@@ -1226,41 +1128,6 @@ The Script should print the message "OK". If you are using Windows, make sure yo
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Home
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../participants-recommender/" class="md-footer__link md-footer__link--next" aria-label="Next: Tutorial: Recommendation micro-service" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Tutorial: Recommendation micro-service
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
