@@ -13,6 +13,7 @@
 ### Sites & Organizers
 
 - [Setup guide](guides/single-machine.md)
+- [Multi-container application based on Pyterrier](guides/pyterrier.md)
 
 ## API Reference
 
