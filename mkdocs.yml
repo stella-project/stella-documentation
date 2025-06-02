@@ -1,37 +1,54 @@
 site_name: STELLA - InfraSTructurEs for Living LAbs
 site_url: https://example.com/
-theme: 
+theme:
     name: material
     logo: img/stella-logo.png
-    favicon: img/favicon.ico 
+    favicon: img/favicon.ico
     icon:
         repo: fontawesome/brands/github
     features:
-        - header.autohide
-        - navigation.top
+      - header.autohide
+      - navigation.top
     palette:
         primary: blue grey
         accent: amber
     font:
         text: Roboto
+plugins:
+  - search
+  #   - mkdocstrings:
+  #         handlers:
+  #             python:
+  #                 setup_commands:
+  #                   - pip install -e ../steall-app
+  - monorepo:
+        include:
+          - name: steall-app # Local folder name
+            remote: https://github.com/stella-project/stella-app.git
+            branch: main # Always pull latest from main
+            docs_dir: docs # Path inside repo
+            docs_url: repo1 # Where in nav this appears
+            clone_depth: 1 # Shallow clone for speed
+
 nav:
-    - Home: index.md
-    - 'Introduction': 
-        - 'Participants': 
-            - 'Tutorial: Ranking micro-service': guides/participants-ranking.md
-            - 'Tutorial: Recommendation micro-service': guides/participants-recommender.md
-            - 'Resources': guides/participants-resources.md
-        - 'Sites & Organizers':    
-            - 'Setup guide': guides/single-machine.md    
-    - 'API Reference':
-        - 'Micro-service': api-reference/micro-service.md  
-        - 'Multi-container application': api-reference/mca.md 
-        - 'Central server': api-reference/server.md
-    - 'Developer information':
-        - 'Environment variables':
-            - 'Multi-container application': develop/env-mca.md 
-            - 'Central server': develop/env-server.md
-    - About: about.md
+  - Home: index.md
+  - Introduction:
+      - 'Lilas Lab':
+          - Introduction: introduction.md
+          - 'Tutorial: Ranking micro-service': guides/participants-ranking.md
+          - 'Tutorial: Recommendation micro-service': guides/participants-recommender.md
+          - 'Resources': guides/participants-resources.md
+      - 'Sites & Organizers':
+          - 'Setup guide': guides/single-machine.md
+  - 'API Reference':
+      - 'Micro-service': api-reference/micro-service.md
+      - 'Multi-container application': api-reference/mca.md
+      - 'Central server': api-reference/server.md
+  - 'Developer information':
+      - 'Environment variables':
+          - 'Multi-container application': develop/env-mca.md
+          - 'Central server': develop/env-server.md
+  - About: about.md
 repo_url: https://github.com/stella-project
 repo_name: stella-project
 edit_uri: https://github.com/stella-project/stella-documentation/tree/master/docs
