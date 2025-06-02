@@ -9,11 +9,26 @@ theme:
     features:
       - header.autohide
       - navigation.top
+      - content.code.copy
     palette:
-        primary: blue grey
+        primary: "deep purple"
         accent: amber
     font:
         text: Roboto
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+    # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/  
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
 plugins:
   - search
   #   - mkdocstrings:
@@ -48,7 +63,10 @@ nav:
       - 'Environment variables':
           - 'Multi-container application': develop/env-mca.md
           - 'Central server': develop/env-server.md
+      - "Setup for Local Developement": develop/initial_setup.md
   - About: about.md
+
+
 repo_url: https://github.com/stella-project
 repo_name: stella-project
 edit_uri: https://github.com/stella-project/stella-documentation/tree/master/docs
