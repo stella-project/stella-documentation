@@ -1,5 +1,6 @@
 site_name: STELLA - InfraSTructurEs for Living LAbs
 site_url: https://example.com/
+
 theme:
     name: material
     logo: img/stella-logo.png
@@ -10,11 +11,14 @@ theme:
       - header.autohide
       - navigation.top
       - content.code.copy
-    palette:
-        primary: "deep purple"
-        accent: amber
     font:
         text: Roboto
+    palette:
+      primary: custom
+
+extra_css:
+  - stylesheets/extra.css
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -64,9 +68,10 @@ nav:
           - 'Multi-container application': develop/env-mca.md
           - 'Central server': develop/env-server.md
       - "Setup for Local Developement": develop/initial_setup.md
+      - "Common Issues": develop/common_issues.md
   - About: about.md
-
 
 repo_url: https://github.com/stella-project
 repo_name: stella-project
 edit_uri: https://github.com/stella-project/stella-documentation/tree/master/docs
+
