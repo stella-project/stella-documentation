@@ -1,77 +1,63 @@
-site_name: STELLA - InfraSTructurEs for Living LAbs
+site_name: STELLA
 site_url: https://example.com/
 
 theme:
-    name: material
-    logo: img/stella-logo.png
-    favicon: img/favicon.ico
-    icon:
-        repo: fontawesome/brands/github
-    features:
-      - header.autohide
-      - navigation.top
-      - content.code.copy
-    font:
-        text: Roboto
-    palette:
-      primary: custom
+  name: material
+  logo: img/stella-logo.png
+  favicon: img/favicon.ico
+  icon:
+    repo: fontawesome/brands/github
+  features:
+  - header.autohide
+  - content.code.copy
+
+  palette:
+    primary: custom
 
 extra_css:
-  - stylesheets/extra.css
+- stylesheets/extra.css
 
 markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-
-    # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/  
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
+- admonition
+- pymdownx.details
+- pymdownx.superfences # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/  
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.superfences
 
 plugins:
-  - search
-  #   - mkdocstrings:
-  #         handlers:
-  #             python:
-  #                 setup_commands:
-  #                   - pip install -e ../steall-app
-  - monorepo:
-        include:
-          - name: steall-app # Local folder name
-            remote: https://github.com/stella-project/stella-app.git
-            branch: main # Always pull latest from main
-            docs_dir: docs # Path inside repo
-            docs_url: repo1 # Where in nav this appears
-            clone_depth: 1 # Shallow clone for speed
+- search
 
 nav:
-  - Home: index.md
-  - Introduction:
-      - 'Lilas Lab':
-          - Introduction: introduction.md
-          - 'Tutorial: Ranking micro-service': guides/participants-ranking.md
-          - 'Tutorial: Recommendation micro-service': guides/participants-recommender.md
-          - 'Resources': guides/participants-resources.md
-      - 'Sites & Organizers':
-          - 'Setup guide': guides/single-machine.md
-  - 'API Reference':
-      - 'Micro-service': api-reference/micro-service.md
-      - 'Multi-container application': api-reference/mca.md
-      - 'Central server': api-reference/server.md
-  - 'Developer information':
-      - 'Environment variables':
-          - 'Multi-container application': develop/env-mca.md
-          - 'Central server': develop/env-server.md
-      - "Setup for Local Developement": develop/initial_setup.md
-      - "Common Issues": develop/common_issues.md
-  - About: about.md
+- Introduction:
+  - introduction/overview.md
+  - introduction/about.md
+  - introduction/lilas-lab.md
+
+- Researcher:
+  - "Introduction": researcher/introduction.md
+  - "Tutorial: Ranker": researcher/participants-ranking.md
+  - "Tutorial: Recommender": researcher/participants-recommender-publications.md
+
+- "Site Owner":
+  - "Introduction": site-owner/introduction.md
+  - "REST API":
+    - "Micro-service": site-owner/micro-service.md
+    - "STELLA-App": site-owner/mca.md
+    - "STELLA-Server": site-owner/server.md
+
+- Developer:
+  - "Introduction": developer/introduction.md
+  - "Setup for Local Developement": developer/initial_setup.md
+  - "Environment variables":
+    - "STELLA-App": developer/env-mca.md
+    - "STELLA-Server": developer/env-server.md
+  - "Common Issues": developer/common_issues.md
 
 repo_url: https://github.com/stella-project
 repo_name: stella-project
 edit_uri: https://github.com/stella-project/stella-documentation/tree/master/docs
-

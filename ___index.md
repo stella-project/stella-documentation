@@ -1,7 +1,7 @@
-# Welcome to STELLA's documentation!
-<!-- <a href="https://stella-project.org/"><img align="right" width="100" src="https://avatars1.githubusercontent.com/u/47419314?s=200&v=4"/></a> -->
+# Welcome to STELLA
 
 ## Introduction
+
 
 ### Participants
 
