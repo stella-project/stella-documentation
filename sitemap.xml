@@ -2,67 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://example.com/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
          <loc>https://example.com/about/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/api-reference/mca/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/developer/common_issues/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/api-reference/micro-service/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/developer/env-mca/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/api-reference/server/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/developer/env-server/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/develop/env-mca/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/developer/initial_setup/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/develop/env-server/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/developer/introduction/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/guides/participants-ranking/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/researcher/introduction/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/guides/participants-recommender-publications/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/researcher/participants-ranking/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/guides/participants-recommender/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/researcher/participants-recommender-publications/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/guides/participants-resources/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/resources/resources/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/guides/pyterrier/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/site-owner/introduction/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
     <url>
-         <loc>https://example.com/guides/single-machine/</loc>
-         <lastmod>2022-02-23</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://example.com/site-owner/mca/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/site-owner/micro-service/</loc>
+         <lastmod>2025-09-15</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/site-owner/server/</loc>
+         <lastmod>2025-09-15</lastmod>
     </url>
 </urlset>
