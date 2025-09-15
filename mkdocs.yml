@@ -33,10 +33,9 @@ plugins:
 - search
 
 nav:
-- Introduction:
-  - introduction/overview.md
-  - introduction/about.md
-  - introduction/lilas-lab.md
+- Home: index.md
+
+- About: about.md
 
 - Researcher:
   - "Introduction": researcher/introduction.md
@@ -57,6 +56,8 @@ nav:
     - "STELLA-App": developer/env-mca.md
     - "STELLA-Server": developer/env-server.md
   - "Common Issues": developer/common_issues.md
+
+- Resources: resources/resources.md
 
 repo_url: https://github.com/stella-project
 repo_name: stella-project

@@ -353,7 +353,7 @@ Your browser will reply with a JSON-Document, that look like to this (itemlist w
 
 Congratulations! Your ranker is running! We can now start to build a dockerized version and run unit-tests!
 
-## 11. Build docker-contaner and run unit-tests
+## 11. Build docker-container and run unit-tests
 
 You are now ready to build your ranker as a docker-container and run unit-tests to check if everything is working as expected, before pushing your code back to github.
 
