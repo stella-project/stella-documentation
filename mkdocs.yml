@@ -31,6 +31,7 @@ markdown_extensions:
 
 plugins:
 - search
+- mkdocs-jupyter
 
 nav:
 - Home: index.md
@@ -44,6 +45,8 @@ nav:
 
 - "Site Owner":
   - "Introduction": site-owner/introduction.md
+  - "Tutorial Gesis": site-owner/gesis-demo-notebook.ipynb
+  - "Tutorial Livivo": site-owner/livivo-demo-notebook.ipynb
   - "REST API":
     - "Micro-service": site-owner/micro-service.md
     - "STELLA-App": site-owner/mca.md
@@ -62,3 +65,4 @@ nav:
 repo_url: https://github.com/stella-project
 repo_name: stella-project
 edit_uri: https://github.com/stella-project/stella-documentation/tree/master/docs
+
