@@ -35,6 +35,10 @@ cp -r gesis-search stella-app/data/
 ## 2. Start Stella-Server
 Now we can start the stella server. If you prefer to run the stella-app without the stella-server, you can skip this step.
 
+```bash
+cd stella-server
+```
+
 To start the stella-server, we navigate into the `stella-server` directory and run the compose stack:
 ```bash
 docker compose -f docker-compose-dev.yml
@@ -52,6 +56,10 @@ docker exec -it stella-dev-server-1 flask seed-db
 
 A good validation if this was successful is to check if the expected systems and users are created in the database.
 
+## Register the Experimental System
+With the server running and the experimental system in place, the next step is registering it. The server is available at localhost:8000. We can log in with the default credentials (experimenter@stella-project.org / pass) to manage system configurations. Under the systems tab, we can register the experimental system by providing the system name and the GitHub repository URL. For example, we can register the ranking system gesis_rank_pyserini with the URL https://github.com/stella-project/gesis_rank_pyserini and the recommendation system gesis_rec_pyterrier with the URL https://github.com/stella-project/gesis_rec_pyterrier. These systems will now show up in the list of registered systems in the STELLA Server, can be activated and will be used for the next build of the STELLA App.
+
+To verify that the systems are correctly registered, we can check the systems table of the STELLA Server database.
 
 ## 3. Start Stella-App
 If the stella-app is run without the stella-server, the stella-app compose stack needs to be modified accordingly. Especially the cron service that copies data between the two databases and the docker network needs to be modified.
@@ -60,14 +68,17 @@ If the stella-app is run without the stella-server, the stella-app compose stack
 
     At the first startup, the cron service might log some errors because the stella-app database is not initialized yet. This is expected but should be resolved after initializing the database.
 
+```bash
+cd stella-app
+```
 
 Like before, we initialize the database of for the stella-app:
 ```bash
-docker exec -it stella-dev-server-1 flask init-db
+docker exec -it stella-dev-app-1 flask init-db
 ```
 and also:
 ```bash
-docker exec -it stella-dev-server-1 flask seed-db
+docker exec -it stella-dev-app-1 flask seed-db
 ```
 
 ## 4. Index Experimental Systems
@@ -76,6 +87,11 @@ After the stella-app and the stella-server is running, we need to index the data
 
 ## 5. Start Stella-Search
 Stella search mimics the search service the stella-app is deployed to. Like the other container it can be started by navigating to the stella-search directory and running
+
+```bash
+cd stella-search
+```
+
 ```bash
 docker compose up
 ```
