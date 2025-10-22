@@ -700,6 +700,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#register-the-experimental-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register the Experimental System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#3-start-stella-app" class="md-nav__link">
     <span class="md-ellipsis">
       3. Start Stella-App
@@ -933,6 +942,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#register-the-experimental-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register the Experimental System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#3-start-stella-app" class="md-nav__link">
     <span class="md-ellipsis">
       3. Start Stella-App
@@ -1008,34 +1026,43 @@
 </span></code></pre></div></p>
 <h2 id="2-start-stella-server">2. Start Stella-Server</h2>
 <p>Now we can start the stella server. If you prefer to run the stella-app without the stella-server, you can skip this step.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>stella-server
+</span></code></pre></div>
 <p>To start the stella-server, we navigate into the <code>stella-server</code> directory and run the compose stack:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dev.yml
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dev.yml
 </span></code></pre></div></p>
 <p>After the stella-server compose stack is running and no errors appear in the logs, its database need to be initiated. Therefore we login to the docker container and run a flask cli command that creates all tables:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>stella-dev-server-1<span class="w"> </span>flask<span class="w"> </span>init-db
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>stella-dev-server-1<span class="w"> </span>flask<span class="w"> </span>init-db
 </span></code></pre></div></p>
 <p>Now we can additionally run a command that fills the tables with the systems and users that are defines in the compose stack:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>stella-dev-server-1<span class="w"> </span>flask<span class="w"> </span>seed-db
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>stella-dev-server-1<span class="w"> </span>flask<span class="w"> </span>seed-db
 </span></code></pre></div></p>
 <p>A good validation if this was successful is to check if the expected systems and users are created in the database.</p>
+<h2 id="register-the-experimental-system">Register the Experimental System</h2>
+<p>With the server running and the experimental system in place, the next step is registering it. The server is available at localhost:8000. We can log in with the default credentials (experimenter@stella-project.org / pass) to manage system configurations. Under the systems tab, we can register the experimental system by providing the system name and the GitHub repository URL. For example, we can register the ranking system gesis_rank_pyserini with the URL https://github.com/stella-project/gesis_rank_pyserini and the recommendation system gesis_rec_pyterrier with the URL https://github.com/stella-project/gesis_rec_pyterrier. These systems will now show up in the list of registered systems in the STELLA Server, can be activated and will be used for the next build of the STELLA App.</p>
+<p>To verify that the systems are correctly registered, we can check the systems table of the STELLA Server database.</p>
 <h2 id="3-start-stella-app">3. Start Stella-App</h2>
 <p>If the stella-app is run without the stella-server, the stella-app compose stack needs to be modified accordingly. Especially the cron service that copies data between the two databases and the docker network needs to be modified.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>At the first startup, the cron service might log some errors because the stella-app database is not initialized yet. This is expected but should be resolved after initializing the database.</p>
 </div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>stella-app
+</span></code></pre></div>
 <p>Like before, we initialize the database of for the stella-app:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>stella-dev-server-1<span class="w"> </span>flask<span class="w"> </span>init-db
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>stella-dev-app-1<span class="w"> </span>flask<span class="w"> </span>init-db
 </span></code></pre></div>
 and also:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>stella-dev-server-1<span class="w"> </span>flask<span class="w"> </span>seed-db
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>stella-dev-app-1<span class="w"> </span>flask<span class="w"> </span>seed-db
 </span></code></pre></div></p>
 <h2 id="4-index-experimental-systems">4. Index Experimental Systems</h2>
 <p>After the stella-app and the stella-server is running, we need to index the dataset if the stella-app is not configured to index the data on startup. The systems are specified in the stella-app docker compose stack and should run by now. To trigger the indexing, the stella-app user interface at <a href="localhost:8080">localhost:8080</a> can be used. </p>
 <h2 id="5-start-stella-search">5. Start Stella-Search</h2>
-<p>Stella search mimics the search service the stella-app is deployed to. Like the other container it can be started by navigating to the stella-search directory and running
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up
-</span></code></pre></div></p>
+<p>Stella search mimics the search service the stella-app is deployed to. Like the other container it can be started by navigating to the stella-search directory and running</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>stella-search
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up
+</span></code></pre></div>
 <p>The system should start and shortly after report that 110420 and 99541 documents were indexed from two directories.</p>
 <p>Now everything is ready and the system can be used.</p>
 <h2 id="6-running-an-experiment">6. Running an Experiment</h2>

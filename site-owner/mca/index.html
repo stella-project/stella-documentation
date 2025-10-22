@@ -914,6 +914,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proxy
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1570,6 +1579,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proxy
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1920,6 +1938,18 @@
 <ul>
 <li><strong>sid</strong>: Identifier of the session to be exited.</li>
 </ul>
+<h2 id="proxy">Proxy</h2>
+<p>This endpoint is a proxy endpoint to allow arbitrary parameters to be sent to the STELLA App and allow arbitrary response back to the Portal/Site.
+These parameters could go beyond the standard parameters used by the ranking/recommendation endpoints. The parameters to be passed for STELLA are to be prefixed </p>
+<p>REST endpoint:</p>
+<p>GET <code>/proxy?query=&lt;string:query&gt;&amp;page=&lt;int:page&gt;&amp;rpp=&lt;int:rpp&gt;&amp;sid=&lt;int:sid&gt;&amp;container=&lt;string:container&gt;</code></p>
+<p>Explanation:</p>
+<p>stella-container: Name of the target container. If not provided, the least served system is used.
+stella-sid: Session ID. If not provided or invalid, a new session is created.
+stella-system-type: Type of system — either ranking or retrieval. Defaults to ranking.
+stella-page: Optional page indicator for cached results.</p>
+<p>Output</p>
+<p>Explanation</p>
 
 
 
