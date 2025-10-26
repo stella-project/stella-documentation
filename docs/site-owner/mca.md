@@ -486,8 +486,11 @@ The JSON path indicating where the list of results (ranked or retrieved items) c
 For example:
 
 `$.hits` - if the results are under a hits key.
+
 `$.models` — if results are under a models key.
+
 `$.results` — if the portal returns results under a results field.
+
 `$.data.items` — for nested structures.
 
 Make sure these mappings reflect the actual output structure of your portal or site API so that STELLA can correctly parse and interleave the responses.
