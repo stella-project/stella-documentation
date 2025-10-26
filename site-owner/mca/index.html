@@ -921,6 +921,66 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rest-endpoint_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      REST Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-url-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      The url Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Response Structure:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-stella-app-for-proxy-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring STELLA APP for Proxy endpoint
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1586,6 +1646,66 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rest-endpoint_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      REST Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-url-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      The url Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Response Structure:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-stella-app-for-proxy-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring STELLA APP for Proxy endpoint
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1609,6 +1729,9 @@
 
   <h1>STELLA-App</h1>
 
+<p>This document lists and explains all available STELLA API endpoints, their parameters and example responses.</p>
+<p>Once the STELLA App is running, you can also view and test these endpoints interactively by visiting http://localhost:8080/docs
+in your browser.</p>
 <h2 id="ranking">Ranking</h2>
 <h3 id="rest-endpoint">REST endpoint:</h3>
 <p><strong>GET</strong> <code>/stella/api/v1/ranking?query=&lt;string:query&gt;&amp;page=&lt;int:page&gt;&amp;rpp=&lt;int:rpp&gt;&amp;sid=&lt;int:sid&gt;&amp;container=&lt;string:container&gt;</code>  </p>
@@ -1939,17 +2062,107 @@
 <li><strong>sid</strong>: Identifier of the session to be exited.</li>
 </ul>
 <h2 id="proxy">Proxy</h2>
-<p>This endpoint is a proxy endpoint to allow arbitrary parameters to be sent to the STELLA App and allow arbitrary response back to the Portal/Site.
-These parameters could go beyond the standard parameters used by the ranking/recommendation endpoints. The parameters to be passed for STELLA are to be prefixed </p>
+<h3 id="rest-endpoint_4">REST Endpoint</h3>
+<p>The STELLA Proxy Endpoint allows arbitrary query parameters to be forwarded to the STELLA App and returns the response back to the Portal/Site. This endpoint is useful when parameters go beyond the standard ranking/recommendation API.</p>
+<p>All parameters intended for STELLA must be prefixed with <code>stella-</code>.</p>
 <p>REST endpoint:</p>
-<p>GET <code>/proxy?query=&lt;string:query&gt;&amp;page=&lt;int:page&gt;&amp;rpp=&lt;int:rpp&gt;&amp;sid=&lt;int:sid&gt;&amp;container=&lt;string:container&gt;</code></p>
+<p>GET <code>/proxy/&lt;string:url&gt;?stella-container=&lt;string:container&gt;&amp;stella-sid=&lt;string:sid&gt;&amp;stella-system-type=&lt;string:system-type&gt;&amp;stella-page=&lt;int:page&gt;&amp;&lt;additional query params&gt;</code></p>
+<h3 id="explanation_14">Explanation:</h3>
+<ul>
+<li>url: the URL path (including subpaths) to forward the request to (required)</li>
+<li>stella-container: name of the container/system to which the request should be forwarded (optional; if omitted, the least-served system is used)</li>
+<li>stella-sid: session identifier; if invalid or missing, a new session is created by STELLA (optional)</li>
+<li>stella-system-type: type of system, either ranking or retrieval (optional, default = ranking)</li>
+<li>stella-page: page number for cached responses (optional)</li>
+<li>additional query params: any other key-value pairs forwarded unchanged to the underlying system (e.g., query, page, rpp, etc.)</li>
+</ul>
+<h3 id="the-url-parameter">The <code>url</code> Parameter</h3>
+<p>Specifies the target endpoint path (including subpaths) on the backend system that STELLA should forward the request to.
+This allows portals to access backend functionalities through STELLA’s unified proxy layer, without needing to know internal service addresses.</p>
+<h3 id="how-it-works">How It Works</h3>
+<p>The url value is appended to the base URL of the systems defined in STELLA’s container (base and experimental) configuration. STELLA automatically constructs the complete backend request URL using this base and the provided url path. The proxy then forwards the portal’s request (and query parameters) to the correct backend service, retrieves its response and augments it with _stella metadata.</p>
+<h3 id="example-response-structure">Example Response Structure:</h3>
+<p>The response from the STELLA Proxy endpoint contains two main sections:</p>
+<ol>
+<li>
+<p>Root-level body:
+This is the original response from the portal/site. Its key name can vary depending on the portal implementation, e.g., results, items, data, etc. This contains the actual content or items returned by the site.</p>
+</li>
+<li>
+<p><code>_stella</code>:
+This is metadata injected by the STELLA proxy. It tracks session, container, and interleaving information used by STELLA.</p>
+</li>
+</ol>
+<p>Fields include:</p>
+<ul>
+<li>sid: Session identifier used or created by STELLA</li>
+<li>rid: Ranking/recommendation identifier</li>
+<li>q: Original query string forwarded to STELLA</li>
+<li>page: Page number of the results</li>
+<li>rpp: Results per page</li>
+<li>container: Names of containers used (exp and optional base)</li>
+<li>body: Standard STELLA body response with details about the returned system type and interleaving</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>{
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  &quot;results&quot;: [
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    {&quot;id&quot;: &quot;M27622217&quot;, &quot;title&quot;: &quot;abcd&quot;, &quot;url&quot;: &quot;https://example.com/doc/M27622217&quot;},
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    {&quot;id&quot;: &quot;M26350569&quot;, &quot;title&quot;: &quot;efgh&quot;, &quot;url&quot;: &quot;https://example.com/doc/M26350569&quot;},
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    {&quot;id&quot;: &quot;M27167258&quot;, &quot;title&quot;: &quot;ijkl&quot;, &quot;url&quot;: &quot;https://example.com/doc/M27167258&quot;}
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  ],
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  &quot;_stella&quot;: {
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    &quot;sid&quot;: &quot;abc123sessionid&quot;,
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    &quot;rid&quot;: 5,
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    &quot;query&quot;: &quot;artificial intelligence&quot;,
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    &quot;page&quot;: 1,
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    &quot;rpp&quot;: 10,
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    &quot;container&quot;: {&quot;base&quot;: &quot;rank_elastic_base&quot;, &quot;exp&quot;: &quot;rank_elastic&quot;},
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    &quot;system_type&quot;: &quot;ranking&quot;
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    &quot;body&quot;: {
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>      &quot;1&quot;: {
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>        &quot;docid&quot;: &quot;M27622217&quot;,
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>        &quot;type&quot;: &quot;BASE&quot;
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>      },
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>      &quot;2&quot;: {
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>        &quot;docid&quot;: &quot;M26350569&quot;,
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>        &quot;type&quot;: &quot;EXP&quot;
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>      },
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>      &quot;3&quot;: {
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>        &quot;docid&quot;: &quot;M27167258&quot;,
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>        &quot;type&quot;: &quot;BASE&quot;
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>      },
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>  }
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>}
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>}
+</span></code></pre></div>
+<h3 id="configuring-stella-app-for-proxy-endpoint">Configuring STELLA APP for Proxy endpoint</h3>
+<p>To enable the Proxy Endpoint, the STELLA App must be correctly configured in the <code>docker-compose.yml</code> file.
+This configuration informs STELLA about how to locate and interpret result items in the portal’s response structure.</p>
+<p>Update the <code>SYSTEMS_CONFIG</code> variable under the <code>app</code> service in your <code>docker-compose.yml</code> file as shown below:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># Systems
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>SYSTEMS_CONFIG: |
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>      {
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>      &quot;rank_elastic_base&quot;: {&quot;type&quot;: &quot;ranker&quot;, &quot;base&quot;: true, &quot;docid&quot;: &quot;db_identifier&quot;, &quot;hits_path&quot;: &quot;$.hits&quot;},
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>      &quot;rank_elastic&quot;: {&quot;type&quot;: &quot;ranker&quot;, &quot;docid&quot;: &quot;db_identifier&quot;, &quot;hits_path&quot;: &quot;$.hits&quot;}
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>      }
+</span></code></pre></div>
 <p>Explanation:</p>
-<p>stella-container: Name of the target container. If not provided, the least served system is used.
-stella-sid: Session ID. If not provided or invalid, a new session is created.
-stella-system-type: Type of system — either ranking or retrieval. Defaults to ranking.
-stella-page: Optional page indicator for cached results.</p>
-<p>Output</p>
-<p>Explanation</p>
+<ul>
+<li>
+<p>docid:
+The field name corresponding to the document identifier in the portal’s response.
+This should match the key used in your portal’s data model (e.g., id, docid, or similar).</p>
+</li>
+<li>
+<p>hits_path:
+The JSON path indicating where the list of results (ranked or retrieved items) can be found in the response.</p>
+</li>
+</ul>
+<p>For example:</p>
+<p><code>$.hits</code> - if the results are under a hits key.
+<code>$.models</code> — if results are under a models key.
+<code>$.results</code> — if the portal returns results under a results field.
+<code>$.data.items</code> — for nested structures.</p>
+<p>Make sure these mappings reflect the actual output structure of your portal or site API so that STELLA can correctly parse and interleave the responses.</p>
 
 
 
