@@ -1,3 +1,8 @@
+This document lists and explains all available STELLA API endpoints, their parameters and example responses.
+
+Once the STELLA App is running, you can also view and test these endpoints interactively by visiting http://localhost:8080/docs
+in your browser.
+
 ## Ranking
 
 ### REST endpoint:
@@ -89,6 +94,8 @@
 #### Explanation:
 
 See above.
+
+
 
 ### Feedback
 ---
@@ -364,3 +371,123 @@ GET ```/stella/api/v1/sessions/<int:sid>/exit```
 #### Explanation:
 
 - **sid**: Identifier of the session to be exited.
+
+## Proxy
+
+
+### REST Endpoint
+The STELLA Proxy Endpoint allows arbitrary query parameters to be forwarded to the STELLA App and returns the response back to the Portal/Site. This endpoint is useful when parameters go beyond the standard ranking/recommendation API.
+
+All parameters intended for STELLA must be prefixed with `stella-`.
+
+REST endpoint:
+
+GET `/proxy/<string:url>?stella-container=<string:container>&stella-sid=<string:sid>&stella-system-type=<string:system-type>&stella-page=<int:page>&<additional query params>`
+
+### Explanation:
+
++ url: the URL path (including subpaths) to forward the request to (required)
++ stella-container: name of the container/system to which the request should be forwarded (optional; if omitted, the least-served system is used)
++ stella-sid: session identifier; if invalid or missing, a new session is created by STELLA (optional)
++ stella-system-type: type of system, either ranking or retrieval (optional, default = ranking)
++ stella-page: page number for cached responses (optional)
++ additional query params: any other key-value pairs forwarded unchanged to the underlying system (e.g., query, page, rpp, etc.)
+
+
+### The `url` Parameter
+
+Specifies the target endpoint path (including subpaths) on the backend system that STELLA should forward the request to.
+This allows portals to access backend functionalities through STELLA’s unified proxy layer, without needing to know internal service addresses.
+
+### How It Works
+
+The url value is appended to the base URL of the systems defined in STELLA’s container (base and experimental) configuration. STELLA automatically constructs the complete backend request URL using this base and the provided url path. The proxy then forwards the portal’s request (and query parameters) to the correct backend service, retrieves its response and augments it with _stella metadata.
+
+
+### Example Response Structure:
+
+The response from the STELLA Proxy endpoint contains two main sections:
+
+1. Root-level body:
+This is the original response from the portal/site. Its key name can vary depending on the portal implementation, e.g., results, items, data, etc. This contains the actual content or items returned by the site.
+
+2. `_stella`:
+This is metadata injected by the STELLA proxy. It tracks session, container, and interleaving information used by STELLA.
+
+Fields include:
+
++ sid: Session identifier used or created by STELLA
++ rid: Ranking/recommendation identifier
++ q: Original query string forwarded to STELLA
++ page: Page number of the results
++ rpp: Results per page
++ container: Names of containers used (exp and optional base)
++ body: Standard STELLA body response with details about the returned system type and interleaving
+
+
+```
+{
+  "results": [
+    {"id": "M27622217", "title": "abcd", "url": "https://example.com/doc/M27622217"},
+    {"id": "M26350569", "title": "efgh", "url": "https://example.com/doc/M26350569"},
+    {"id": "M27167258", "title": "ijkl", "url": "https://example.com/doc/M27167258"}
+  ],
+  "_stella": {
+    "sid": "abc123sessionid",
+    "rid": 5,
+    "query": "artificial intelligence",
+    "page": 1,
+    "rpp": 10,
+    "container": {"base": "rank_elastic_base", "exp": "rank_elastic"},
+    "system_type": "ranking"
+    "body": {
+      "1": {
+        "docid": "M27622217",
+        "type": "BASE"
+      },
+      "2": {
+        "docid": "M26350569",
+        "type": "EXP"
+      },
+      "3": {
+        "docid": "M27167258",
+        "type": "BASE"
+      },
+  }
+}
+}
+```
+
+### Configuring STELLA APP for Proxy endpoint
+
+To enable the Proxy Endpoint, the STELLA App must be correctly configured in the `docker-compose.yml` file.
+This configuration informs STELLA about how to locate and interpret result items in the portal’s response structure.
+
+Update the `SYSTEMS_CONFIG` variable under the `app` service in your `docker-compose.yml` file as shown below:
+
+```
+# Systems
+SYSTEMS_CONFIG: |
+      {
+      "rank_elastic_base": {"type": "ranker", "base": true, "docid": "db_identifier", "hits_path": "$.hits"},
+      "rank_elastic": {"type": "ranker", "docid": "db_identifier", "hits_path": "$.hits"}
+      }
+```
+
+Explanation:
+
++ docid:
+The field name corresponding to the document identifier in the portal’s response.
+This should match the key used in your portal’s data model (e.g., id, docid, or similar).
+
++ hits_path:
+The JSON path indicating where the list of results (ranked or retrieved items) can be found in the response.
+
+For example:
+
+`$.hits` - if the results are under a hits key.
+`$.models` — if results are under a models key.
+`$.results` — if the portal returns results under a results field.
+`$.data.items` — for nested structures.
+
+Make sure these mappings reflect the actual output structure of your portal or site API so that STELLA can correctly parse and interleave the responses.
