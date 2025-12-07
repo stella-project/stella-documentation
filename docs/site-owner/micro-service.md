@@ -1,9 +1,46 @@
+The **STELLA micro-template** provides experimenters with a standardized way to integrate their ranking and recommendation systems into the STELLA infrastructure.
+
+### Dockerized Experimental Systems 
+
+STELLA **supports experimental systems that are integrated as Dockerized microservices**.  
+Each experimental system runs as an independent container and exposes a REST interface that is consumed by the STELLA App at runtime.
+
+Using the microservice-based approach:
+
+- each system is deployed as its own Docker container
+- systems are integrated directly into the STELLA App via Docker Compose
+- ranking and recommendation results are generated dynamically on request
+- systems can access the full user interaction context
+
+This approach enables:
+
+- real-time ranking and recommendation
+- interactive experimentation with live user queries
+- richer and more flexible experimental workflows
+- experimentation beyond fixed or pre-defined queries and items
+
+### Why the Microservice Template
+
+The STELLA micro-template provides a ready-to-use scaffold that:
+
+- defines the required API contract
+- standardizes request and response formats
+- simplifies deployment and integration
+- ensures compatibility with the STELLA App and Server
+
+Experimenters are expected to adapt the micro-template to wrap their ranking or recommendation logic and deploy it as a Docker service within the STELLA App environment.
+
+This microservice-based architecture is the **only supported mechanism** for integrating experimental systems into the STELLA infrastructure.
+
+
+
 ## Ranking
 
-### REST endpoint:
+
+REST endpoint:
 **GET** `container_name/ranking?query=<string:qstr>&page=<int:pnum>&rpp=<int:rppnum>`
 
-#### Explanation:
+Explanation:
 
 - **container_name**: name of the container that contains either the baseline or one of the experimental systems
 - **query**: the query string
@@ -11,7 +48,7 @@
 - **rpp**: the number of results per page
 
 
-### Output:
+Output:
 
 ```
 {'itemlist': ['M26721328',
@@ -40,7 +77,7 @@
  'rpp': 20}
 ```
 
-#### Explanation:
+Explanation:
 
 - **itemlist**: a list containing the document identifiers
 - **num_found**: the total number of documents found for the given `query`
@@ -50,11 +87,11 @@
  
 ## Recommendation
 
-### REST endpoint:
+REST endpoint:
 **GET** `container_name/recommendation/datasets?itemid=<string:itemidstr>&page=<int:pnum>&rpp=<int:rppnum>`  
 **GET** `container_name/recommendation/publications?itemid=<string:itemidstr>&page=<int:pnum>&rpp=<int:rppnum>`
 
-#### Explanation:
+Explanation:
 
 - **container_name**: name of the container that contains either the baseline or one of the experimental systems
 - **datasets/publications**: specify if datasets of publications should be recommended
@@ -62,7 +99,7 @@
 - **page**: the number of the start page
 - **rpp**: the number of results per page
 
-### Output:
+Output:
 
 ```
 {'itemid': 'M26923455',
@@ -81,7 +118,7 @@
  'rpp': 10}
 ```
 
-#### Explanation:
+Explanation:
 
 - **itemid**: the target item of the recommendations
 - **itemlist**: a list containing the document identifiers

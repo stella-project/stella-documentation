@@ -30,6 +30,6 @@ The Swagger interface reflects the current API version exposed by the running ST
 
 A conceptual and workflow-oriented explanation of the STELLA App API endpoints is provided in the following documentation:
 
-[**Site Owner → REST API → STELLA-App**](../site-owner/mca.md)  
+[**Site Owner → REST API Documentation**](../site-owner/app-rest.md)  
 
 This documentation describes how individual endpoints relate to experiment execution, session lifecycle management and feedback collection.

@@ -16,7 +16,7 @@ Use the following sections as a guided workflow. Each item links to a dedicated 
 2. [Environment Variables](../site-owner/app-env.md)
 3. [Database Initialization](../site-owner/app-init-db.md)
 4. [Endpoints and API Usage](../site-owner/app-api.md)
-5. [REST API Documentation](../site-owner/app-mca.md)
+5. [REST API Documentation](../site-owner/app-rest.md)
 5. [Database Schema and Models](../site-owner/app-database-schema.md)
 
 ---

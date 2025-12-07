@@ -1,4 +1,4 @@
-### Feedback
+## Feedback
 
 GET details of all feedbacks (see also `util/GET_feedbacks.py`):  
 `/feedbacks`
@@ -56,7 +56,7 @@ The payload should be provided as follows:
 }
 ```
 
-### Participant
+## Participant
 
 GET all systems of participant with `id` (see also `util/GET_systems_of_participant.py`):  
 `/participants/<int:id>/systems`
@@ -64,7 +64,7 @@ GET all systems of participant with `id` (see also `util/GET_systems_of_particip
 GET all sessions of participant with `id` (see also `util/GET_sessions_of_participant.py`):  
 `/participants/<int:id>/sessions`
 
-### Ranking
+## Ranking
 
 GET details of ranking with `id` (see also `util/GET_ranking.py`):  
 `/rankings/<int:id>`
@@ -112,7 +112,7 @@ The payload should be provided as follows:
 }
 ```
 
-### Recommendation
+## Recommendation
 
 GET details of recommendation with `id` (see also `util/GET_ranking.py` that works analogously):  
 `/recommendations/<int:id>`
@@ -160,7 +160,7 @@ The payload should be provided as follows:
 }
 ```
 
-### Session
+## Session
 
 GET session with `id` (see also `util/GET_session.py`):  
 `/sessions/<int:id>`
@@ -171,7 +171,7 @@ GET feedback from session with `id` (see also `util/GET_feedbacks_of_session.py`
 GET systems used in session with `id`:  
 `/sessions/<int:id>/systems`
 
-### Site
+## Site
 
 GET site details, e.g. `id`, with the help of the `name` (see also `util/GET_systems_at_site.py`):  
 `/sites/<string:name>`
