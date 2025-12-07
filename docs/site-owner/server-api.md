@@ -20,6 +20,25 @@ For local testing and validation of a STELLA setup, the STELLA Server API can be
 
 These endpoints are available only in development setups where ports are explicitly exposed.
 
+## Server UI
+
+The STELLA Server UI is accessible at `http://localhost:8080`
+
+You can log in using any of the admin, user or site credentials.
+
+![](../img/server-login.png)
+
+
+After logging in, the main dashboard is available at `http://localhost:8080/dashboard`
+
+![](../img/dashboard.png)
+
+
+All registered experimental and baseline systems can be viewed at `http://localhost:8080/systems`
+
+![](../img/systems.png)
+
+
 
 ## Swagger UI
 
@@ -29,6 +48,17 @@ The Swagger UI provides an interactive interface that allows users and developer
 - test API endpoints locally
 - validate communication between the STELLA App and the STELLA Server
 - debug experiment execution, session handling and feedback ingestion
+
+The Swagger interface displays the current API version provided by the running STELLA Server instance and provides an interactive view of all available endpoints and would be available at `http://localhost:8080/docs`
+
+![](../img/server-swagger.png)
+
+
+Because the STELLA Server API is internal-only, testing or using POST endpoints requires authorization. Click the Authorize button in the top-right corner of the Swagger UI to provide credentials.
+
+![](../img/authorise.png)
+
+You can use any of the admin, user, or site credentials to authorize and execute the endpoints.
 
 ## Endpoint Semantics
 

@@ -23,7 +23,9 @@ The Swagger UI provides an interactive interface that allows users and developer
 - test API endpoints directly from the browser
 - trigger experimental workflows such as session creation, ranking and recommendation requests
 
-The Swagger interface reflects the current API version exposed by the running STELLA App instance.
+The Swagger interface displays the current API version provided by the running STELLA App instance and provides an interactive view of all available endpoints and would be available at  `http://localhost:8000/docs`. 
+
+![](../img/app-swagger.png)
 
 
 ## Endpoint Semantics

@@ -54,6 +54,7 @@ nav:
     - "About": site-owner/app.md
     - "Configuring Docker Compose": site-owner/app-docker-setup.md
     - "Environment Variables" : site-owner/app-env.md
+    - "Starting App Services": site-owner/app-start.md
     - "Initialising the Database": site-owner/app-init-db.md
     - "Endpoints and API Usage": site-owner/app-api.md
     - "REST API Documentation": site-owner/app-rest.md
@@ -62,6 +63,7 @@ nav:
     - "About": site-owner/server.md
     - "Configuring Docker Compose": site-owner/server-docker-setup.md
     - "Environment Variables": site-owner/server-env.md
+    - "Starting Server Services" : site-owner/server-start.md
     - "Initialising the Database": site-owner/server-init-db.md
     - "Endpoints and API Usage": site-owner/server-api.md
     - "REST API Documentation": site-owner/server-rest.md
