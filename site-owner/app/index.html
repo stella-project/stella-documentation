@@ -626,6 +626,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../app-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Starting App Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../app-init-db/" class="md-nav__link">
         
   
@@ -816,6 +839,29 @@
   
   <span class="md-ellipsis">
     Environment Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Starting Server Services
     
   </span>
   
@@ -1170,6 +1216,7 @@
 <ol>
 <li><a href="../app-docker-setup/">Docker Compose Configuration</a></li>
 <li><a href="../app-env/">Environment Variables</a></li>
+<li><a href="../app-start/">Starting App Services</a></li>
 <li><a href="../app-init-db/">Database Initialization</a></li>
 <li><a href="../app-api/">Endpoints and API Usage</a></li>
 <li><a href="../app-rest/">REST API Documentation</a></li>
@@ -1181,19 +1228,6 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/stella-project/stella-app.git
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>stella-app
 </span></code></pre></div>
-<p>Development Mode (Hot Reloading)</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo docker compose -f docker-compose-dev.yml up
-</span></code></pre></div>
-<p>Production-like Deployment</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo docker compose -f docker-compose.yml
-</span></code></pre></div>
-<p>Expected Containers
-A standard deployment starts several containers, including:</p>
-<ul>
-<li>stella-app — application service (localhost:8000)</li>
-<li>postgres — database service (localhost:5430)</li>
-<li>one container per experimental system (ranker or recommender)</li>
-</ul>
 
 
 

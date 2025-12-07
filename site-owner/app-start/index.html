@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://example.com/">
+        <link rel="canonical" href="https://example.com/site-owner/app-start/">
       
       
+        <link rel="prev" href="../app-env/">
       
-        <link rel="next" href="about/">
+      
+        <link rel="next" href="../app-init-db/">
       
       
-      <link rel="icon" href="img/favicon.ico">
+      <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
-        <title>STELLA</title>
+        <title>Starting App Services - STELLA</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,11 +48,11 @@
       
     
     
-      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stella-technical-documentation" class="md-skip">
+        <a href="#development-mode-hot-reloading" class="md-skip">
           Skip to content
         </a>
       
@@ -90,9 +92,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="STELLA" class="md-header__button md-logo" aria-label="STELLA" data-md-component="logo">
+    <a href="../.." title="STELLA" class="md-header__button md-logo" aria-label="STELLA" data-md-component="logo">
       
-  <img src="img/stella-logo.png" alt="logo">
+  <img src="../../img/stella-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Starting App Services
             
           </span>
         </div>
@@ -199,9 +201,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="STELLA" class="md-nav__button md-logo" aria-label="STELLA" data-md-component="logo">
+    <a href="../.." title="STELLA" class="md-nav__button md-logo" aria-label="STELLA" data-md-component="logo">
       
-  <img src="img/stella-logo.png" alt="logo">
+  <img src="../../img/stella-logo.png" alt="logo">
 
     </a>
     STELLA
@@ -225,32 +227,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -261,68 +241,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#roles-documentation-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Roles &amp; Documentation Structure
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Roles &amp; Documentation Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-researcher" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Researcher
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-site-owner" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Site Owner
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-developer" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Developer
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -334,7 +252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         
   
   
@@ -394,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="researcher/introduction/" class="md-nav__link">
+      <a href="../../researcher/introduction/" class="md-nav__link">
         
   
   
@@ -417,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="researcher/participants-ranking/" class="md-nav__link">
+      <a href="../../researcher/participants-ranking/" class="md-nav__link">
         
   
   
@@ -440,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="researcher/participants-recommender-publications/" class="md-nav__link">
+      <a href="../../researcher/participants-recommender-publications/" class="md-nav__link">
         
   
   
@@ -467,18 +385,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -494,7 +414,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Site Owner
@@ -508,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   
@@ -528,18 +448,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -555,7 +477,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             STELLA App
@@ -569,7 +491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/app/" class="md-nav__link">
+      <a href="../app/" class="md-nav__link">
         
   
   
@@ -592,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/app-docker-setup/" class="md-nav__link">
+      <a href="../app-docker-setup/" class="md-nav__link">
         
   
   
@@ -615,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/app-env/" class="md-nav__link">
+      <a href="../app-env/" class="md-nav__link">
         
   
   
@@ -635,10 +557,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="site-owner/app-start/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Starting App Services
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -649,6 +591,60 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#development-mode-hot-reloading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Mode (Hot Reloading)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-like-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production-like Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expected Containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-names-non-development-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Names (Non-Development Mode)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -661,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/app-init-db/" class="md-nav__link">
+      <a href="../app-init-db/" class="md-nav__link">
         
   
   
@@ -684,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/app-api/" class="md-nav__link">
+      <a href="../app-api/" class="md-nav__link">
         
   
   
@@ -707,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/app-rest/" class="md-nav__link">
+      <a href="../app-rest/" class="md-nav__link">
         
   
   
@@ -730,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/app-database-schema/" class="md-nav__link">
+      <a href="../app-database-schema/" class="md-nav__link">
         
   
   
@@ -799,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/server/" class="md-nav__link">
+      <a href="../server/" class="md-nav__link">
         
   
   
@@ -822,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/server-docker-setup/" class="md-nav__link">
+      <a href="../server-docker-setup/" class="md-nav__link">
         
   
   
@@ -845,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/server-env/" class="md-nav__link">
+      <a href="../server-env/" class="md-nav__link">
         
   
   
@@ -868,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/server-start/" class="md-nav__link">
+      <a href="../server-start/" class="md-nav__link">
         
   
   
@@ -891,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/server-init-db/" class="md-nav__link">
+      <a href="../server-init-db/" class="md-nav__link">
         
   
   
@@ -914,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/server-api/" class="md-nav__link">
+      <a href="../server-api/" class="md-nav__link">
         
   
   
@@ -937,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/server-rest/" class="md-nav__link">
+      <a href="../server-rest/" class="md-nav__link">
         
   
   
@@ -960,7 +956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/server-database-schema/" class="md-nav__link">
+      <a href="../server-database-schema/" class="md-nav__link">
         
   
   
@@ -991,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="site-owner/micro-service/" class="md-nav__link">
+      <a href="../micro-service/" class="md-nav__link">
         
   
   
@@ -1059,7 +1055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="developer/introduction/" class="md-nav__link">
+      <a href="../../developer/introduction/" class="md-nav__link">
         
   
   
@@ -1082,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="developer/initial_setup/" class="md-nav__link">
+      <a href="../../developer/initial_setup/" class="md-nav__link">
         
   
   
@@ -1105,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="developer/common_issues/" class="md-nav__link">
+      <a href="../../developer/common_issues/" class="md-nav__link">
         
   
   
@@ -1135,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="resources/resources/" class="md-nav__link">
+      <a href="../../resources/resources/" class="md-nav__link">
         
   
   
@@ -1167,8 +1163,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1177,44 +1171,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#roles-documentation-structure" class="md-nav__link">
+  <a href="#development-mode-hot-reloading" class="md-nav__link">
     <span class="md-ellipsis">
-      Roles &amp; Documentation Structure
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Roles &amp; Documentation Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-researcher" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Researcher
+      Development Mode (Hot Reloading)
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2-site-owner" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#production-like-deployment" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Site Owner
+      Production-like Deployment
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#3-developer" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#expected-containers" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Developer
+      Expected Containers
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#container-names-non-development-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Names (Non-Development Mode)
+    </span>
+  </a>
   
 </li>
       
@@ -1237,32 +1225,46 @@
   
 
 
-<h1 id="stella-technical-documentation">STELLA Technical Documentation</h1>
-<p>Welcome to the official technical documentation for the <strong>STELLA Project</strong>.
-This site serves as the single source of truth for everything related to STELLA, including tutorials, demos, the STELLA microservice, STELLA app, STELLA server and REST API endpoints.</p>
-<h2 id="roles-documentation-structure">Roles &amp; Documentation Structure</h2>
-<p>The documentation is organized around the three main roles within the STELLA ecosystem:</p>
-<h3 id="1-researcher">1. Researcher</h3>
-<p>For researchers conducting experiments with STELLA:</p>
+  <h1>Starting App Services</h1>
+
+<p>Once the Docker Compose file is configured and all experimental systems are ready, the STELLA App can be started by building and running the containers.</p>
+<h2 id="development-mode-hot-reloading">Development Mode (Hot Reloading)</h2>
+<p>Development mode enables hot reloading and is recommended during local development and testing.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dev.yml<span class="w"> </span>build
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-dev.yml<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
+<p>In this mode, local code changes are reflected immediately inside the running containers.</p>
+<h2 id="production-like-deployment">Production-like Deployment</h2>
+<p>For a stable, production-style deployment without hot reloading, use:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>build
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
+<p>This mode is intended for staged or production deployments.</p>
+<h2 id="expected-containers">Expected Containers</h2>
+<p>A standard STELLA App deployment starts several containers, including:</p>
 <ul>
-<li>Propose and test modifications to search systems.</li>
-<li>Run and analyze online experiments.</li>
-<li>Participate in the <strong>Lilas-Lab</strong> environment.</li>
+<li>stella-app — Flask application service
+Accessed internally and via reverse proxy (default: localhost:8080)</li>
+<li>postgres — PostgreSQL database service
+Default port: 5430</li>
+<li>all system containers</li>
 </ul>
-<h3 id="2-site-owner">2. Site Owner</h3>
-<p>For site owners hosting search systems:</p>
+<p>Example output after starting containers in development mode:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>CONTAINER ID   IMAGE                                     COMMAND                     PORTS                                           NAMES
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>f630dda0536d   stella-dev-app                             &quot;flask run --host=0.…&quot;     0.0.0.0:8080-&gt;8000/tcp                         stella-dev-app-1
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>f4d99530d31d   postgres:16                               &quot;docker-entrypoint.s…&quot;     0.0.0.0:5430-&gt;5430/tcp                         stella-dev-db-app-1
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>0ac7ee6a1eb1   stella-dev-gesis_rank_pyserini_base       &quot;/bin/sh -c &#39;python3…&quot;                                                   gesis_rank_pyserini_base
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>c506ce89c5fa   stella-dev-gesis_rec_pyserini             &quot;/bin/sh -c &#39;python3…&quot;                                                   gesis_rec_pyserini
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>fb4eb14c69a4   stella-dev-gesis_rec_pyterrier            &quot;/bin/sh -c &#39;python3…&quot;                                                   gesis_rec_pyterrier
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>989e34cff880   stella-dev-gesis_rank_pyserini            &quot;/bin/sh -c &#39;python3…&quot;                                                   gesis_rank_pyserini
+</span></code></pre></div>
+<h2 id="container-names-non-development-mode">Container Names (Non-Development Mode)</h2>
+<p>When running without the development Compose file, container names follow the standard naming convention:</p>
 <ul>
-<li>Deploy the STELLA infrastructure to their platform.</li>
-<li>Enable researchers to integrate experimental systems.</li>
-<li>Interact primarily with the REST endpoints of the STELLA app.</li>
+<li>stella-app-1</li>
+<li>stella-db-app-1</li>
 </ul>
-<h3 id="3-developer">3. Developer</h3>
-<p>For developers working with STELLA source code:</p>
-<ul>
-<li>Explore the architecture of STELLA’s core components.</li>
-<li>Access in-depth implementation details.</li>
-<li>Extend or contribute to STELLA’s microservices and APIs.</li>
-</ul>
+<p>These containers must all be running for the STELLA App to operate correctly.</p>
 
 
 
@@ -1311,10 +1313,10 @@ This site serves as the single source of truth for everything related to STELLA,
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "content.code.copy"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
