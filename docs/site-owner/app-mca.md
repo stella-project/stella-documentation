@@ -5,11 +5,11 @@ in your browser.
 
 ## Ranking
 
-### REST endpoint:
+REST endpoint:
 
 **GET** ```/stella/api/v1/ranking?query=<string:query>&page=<int:page>&rpp=<int:rpp>&sid=<int:sid>&container=<string:container>```  
 
-#### Explanation:
+Explanation:
 
 - **query**: the query string
 - **page**: the number of the start page (optional)
@@ -17,7 +17,7 @@ in your browser.
 - **container**: name of the container that contains either the baseline or one of the experimental systems (optional)
 - **sid**: the session identifier (optional)
 
-### Output (interleaved ranking):
+Output (interleaved ranking):
 ```
 {'body': {'1': {'docid': 'M27622217', 'type': 'BASE'},
           '2': {'docid': 'M27251231', 'type': 'EXP'},
@@ -47,7 +47,7 @@ in your browser.
             'sid': 1}}
 ```
 
-#### Explanation:
+Explanation:
 
 - **header**: header containing meta information about the returned result
 - **body**: body with rank positions, identifiers, and type of the corresponding system
@@ -61,7 +61,7 @@ in your browser.
 - **hits**: the number of total hits
 - **sid**: the session identifier
 
-### Output (non-interleaved ranking):
+Output (non-interleaved ranking):
 
 ```
 {'body': {'1': {'docid': 'M27622217', 'type': 'EXP'},
@@ -91,24 +91,24 @@ in your browser.
             'hits': 12312,
             'sid': 1}}
 ```
-#### Explanation:
+Explanation:
 
 See above.
 
 
 
-### Feedback
----
-### REST endpoint:
+## Feedback
+
+REST endpoint:
 
 **POST** ```/stella/api/v1/ranking/rid=<int:rid>/feedback```
 
-#### Explanation:
+Explanation:
 
 - **sid**: the session identifier
 - **rid**: the ranking identifier
 
-### Payload:
+Payload:
 ```
 {'clicks': {'1': {'clicked': False,
                   'date': None,
@@ -191,7 +191,7 @@ See above.
  'start': '2020-07-29 16:06:51'}
 ```
 
-#### Explanation:
+Explanation:
 
 - **start**: time of session start, has to be provided as datetime-formatted string like 'YYYY-MM-DD HH:MM:SS'
 - **interleave**: boolean value indicating if the result list has been interleaved
@@ -204,13 +204,12 @@ See above.
 
 ## Recommendations
 
-### REST endpoint:
+REST endpoint:
 
-#### Datasets
 
-**GET** ```/stella/api/v1/recommendation/datasets?itemid=<string:itemid>&page=<int:page>&rpp=<int:rpp>&sid=<int:sid>&container=<string:container>```  
+**GET** ```/stella/api/v1/recommendation?itemid=<string:itemid>&page=<int:page>&rpp=<int:rpp>&sid=<int:sid>&container=<string:container>```  
 
-#### Explanation:
+Explanation:
 
 - **itemid**: the target item of the recommendations
 - **page**: the number of the start page (optional)
@@ -218,15 +217,8 @@ See above.
 - **sid**: the session identifier (optional)
 - **container**: name of the container that contains either the baseline or one of the experimental systems (optional)
 
-#### Publications
 
-**GET** ```/stella/api/v1/recommendation/publications?itemid=<string:itemid>&page=<int:page>&rpp=<int:rpp>&sid=<int:sid>&container=<string:container>```  
-
-#### Explanation:
-
-See above.
-
-### Output (interleaved recommendation):
+Output (interleaved recommendation):
 
 ```
 {'body': {'1': {'docid': 'M27388739', 'type': 'BASE'},
@@ -248,7 +240,7 @@ See above.
             'type': 'PUB'}}
 ```
 
-#### Explanation:
+Explanation:
 
 - **header**: header containing meta information about the returned result
 - **body**: body with positions, identifiers, and type of the corresponding system
@@ -263,7 +255,7 @@ See above.
 - **sid**: the session identifier
 - **type**: type of system can be either `BASE` or `EXP`
 
-### Output (non-interleaved recommendation):
+Output (non-interleaved recommendation):
 
 ```
 {'body': {'1': {'docid': 'M27038470', 'type': 'EXP'},
@@ -285,16 +277,17 @@ See above.
             'type': 'PUB'}}
 ```
 
-#### Explanation:
+Explanation:
 
 See above.
 
-### Feedback
----
-### REST endpoint:
+Feedback
+
+
+REST endpoint:
 **POST** ```/stella/api/v1/recommendation/rid=rid=<int:rid>/feedback```
 
-#### Explanation:
+Explanation:
 
 - **rid**: the recommendation identifier
 
@@ -339,7 +332,7 @@ See above.
  'interleave': True,
  'start': '2020-07-29 17:11:18'}
 ```
-#### Explanation:
+Explanation:
 
 - **start**: time of session start, has to be provided as datetime-formatted string like 'YYYY-MM-DD HH:MM:SS'
 - **interleave**: boolean value indicating if the result list has been interleaved
@@ -354,28 +347,29 @@ See above.
 
 GET ```/stella/api/v1/index/bulk```
 
-#### Explanation:
+Explanation:
 
 Start indexing all containers in parallel.
 
 GET ```/stella/api/v1/index/<string:container_name>```
 
-#### Explanation:
+Explanation:
 
 - **container_name**: Name of the specific container to be indexed.
 
-## Exit sessions
+Exit sessions
 
 GET ```/stella/api/v1/sessions/<int:sid>/exit```
 
-#### Explanation:
+Explanation:
 
 - **sid**: Identifier of the session to be exited.
 
 ## Proxy
 
 
-### REST Endpoint
+REST Endpoint
+
 The STELLA Proxy Endpoint allows arbitrary query parameters to be forwarded to the STELLA App and returns the response back to the Portal/Site. This endpoint is useful when parameters go beyond the standard ranking/recommendation API.
 
 All parameters intended for STELLA must be prefixed with `stella-`.
@@ -384,7 +378,7 @@ REST endpoint:
 
 GET `/proxy/<string:url>?stella-container=<string:container>&stella-sid=<string:sid>&stella-system-type=<string:system-type>&stella-page=<int:page>&<additional query params>`
 
-### Explanation:
+Explanation:
 
 + url: the URL path (including subpaths) to forward the request to (required)
 + stella-container: name of the container/system to which the request should be forwarded (optional; if omitted, the least-served system is used)

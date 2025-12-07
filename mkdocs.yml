@@ -31,6 +31,12 @@ markdown_extensions:
 
 plugins:
 - search
+- mkdocstrings:
+    handlers:
+      python:
+        setup_commands:
+          - "import sys; sys.path.insert(0, 'app')"
+          - "import sys; sys.path.insert(0, 'server')"
 
 nav:
 - Home: index.md
@@ -44,17 +50,28 @@ nav:
 
 - "Site Owner":
   - "Introduction": site-owner/introduction.md
-  - "REST API":
-    - "Micro-service": site-owner/micro-service.md
-    - "STELLA-App": site-owner/mca.md
-    - "STELLA-Server": site-owner/server.md
+  - "STELLA App" :
+    - "About": site-owner/app.md
+    - "Configuring Docker Compose": site-owner/app-docker-setup.md
+    - "Environment Variables" : site-owner/app-env.md
+    - "Initialising the Database": site-owner/app-init-db.md
+    - "Endpoints and API Usage": site-owner/app-api.md
+    - "REST API Documentation": site-owner/app-rest.md
+    - "Database Schema": site-owner/app-database-schema.md
+  - "STELLA Server":
+    - "About": site-owner/server.md
+    - "Configuring Docker Compose": site-owner/server-docker-setup.md
+    - "Environment Variables": site-owner/server-env.md
+    - "Initialising the Database": site-owner/server-init-db.md
+    - "Endpoints and API Usage": site-owner/server-api.md
+    - "REST API Documentation": site-owner/server-rest.md
+    - "Database Schema": site-owner/server-database-schema.md
+  - "Micro-service": site-owner/micro-service.md
+
 
 - Developer:
   - "Introduction": developer/introduction.md
   - "Setup for Local Developement": developer/initial_setup.md
-  - "Environment variables":
-    - "STELLA-App": developer/env-mca.md
-    - "STELLA-Server": developer/env-server.md
   - "Common Issues": developer/common_issues.md
 
 - Resources: resources/resources.md
