@@ -16,7 +16,7 @@ Use the following sections as a guided workflow. Each item links to a dedicated 
 2. [Environment Variables](../site-owner/server-env.md)
 3. [Database Initialization](../site-owner/server-init-db.md)
 4. [Endpoints and API Usage](../site-owner/server-api.md)
-5. [REST API Documentation](../site-owner/server-mca.md)
+5. [REST API Documentation](../site-owner/server-rest.md)
 5. [Database Schema and Models](../site-owner/server-database-schema.md)
 
 ---
