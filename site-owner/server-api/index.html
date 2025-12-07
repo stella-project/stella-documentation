@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#application-access" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -792,6 +797,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Endpoints and API Usage
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -803,6 +821,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Access
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swagger-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swagger UI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint Semantics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -875,7 +937,7 @@
   
   
   <span class="md-ellipsis">
-    Micro-service
+    STELLA Micro-service
     
   </span>
   
@@ -1047,6 +1109,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Access
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swagger-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swagger UI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint Semantics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1066,7 +1163,34 @@
 
   <h1>Endpoints and API Usage</h1>
 
-
+<p>This section describes how to access and interact with the STELLA Server API once the application is running.</p>
+<p>The STELLA Server API is <strong>not intended to be exposed publicly</strong>. In a standard deployment, it is consumed <strong>only by the STELLA App</strong> over the internal Docker network. External clients should not interact with the server API directly.</p>
+<hr />
+<h2 id="application-access">Application Access</h2>
+<p>For local testing and validation of a STELLA setup, the STELLA Server API can be accessed via the following endpoints:</p>
+<ul>
+<li>
+<p><strong>STELLA App base URL:</strong><br />
+<code>http://localhost:8080</code></p>
+</li>
+<li>
+<p><strong>Swagger / OpenAPI documentation:</strong><br />
+<code>http://localhost:8080/docs</code></p>
+</li>
+</ul>
+<p>These endpoints are available only in development setups where ports are explicitly exposed.</p>
+<h2 id="swagger-ui">Swagger UI</h2>
+<p>The Swagger UI provides an interactive interface that allows users and developers to:</p>
+<ul>
+<li>inspect request and response schemas</li>
+<li>test API endpoints locally</li>
+<li>validate communication between the STELLA App and the STELLA Server</li>
+<li>debug experiment execution, session handling and feedback ingestion</li>
+</ul>
+<h2 id="endpoint-semantics">Endpoint Semantics</h2>
+<p>A conceptual and workflow-oriented explanation of the STELLA Server API endpoints is provided in the following documentation:</p>
+<p><a href="../server-rest/"><strong>Site Owner → REST API Documentation</strong></a>  </p>
+<p>This documentation describes how individual endpoints relate to experiment execution, session lifecycle management and feedback collection.</p>
 
 
 

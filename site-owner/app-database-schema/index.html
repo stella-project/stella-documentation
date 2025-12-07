@@ -988,7 +988,7 @@
   
   
   <span class="md-ellipsis">
-    Micro-service
+    STELLA Micro-service
     
   </span>
   
@@ -1429,7 +1429,10 @@
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>app/web/app/models.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-0-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
 <span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
 <span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
 <span class="normal"><a href="#__codelineno-0-100">100</a></span>
@@ -1446,30 +1449,27 @@
 <span class="normal"><a href="#__codelineno-0-111">111</a></span>
 <span class="normal"><a href="#__codelineno-0-112">112</a></span>
 <span class="normal"><a href="#__codelineno-0-113">113</a></span>
-<span class="normal"><a href="#__codelineno-0-114">114</a></span>
-<span class="normal"><a href="#__codelineno-0-115">115</a></span>
-<span class="normal"><a href="#__codelineno-0-116">116</a></span>
-<span class="normal"><a href="#__codelineno-0-117">117</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-97"><a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="k">class</span><span class="w"> </span><span class="nc">Feedback</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-</span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="sd">    Represents user feedback for a session result.</span>
-</span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100"></a>
-</span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">    Attributes:</span>
-</span><span id="__span-0-102"><a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="sd">        id (int): Unique identifier of the feedback.</span>
-</span><span id="__span-0-103"><a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">        start (datetime): Timestamp when the feedback started.</span>
-</span><span id="__span-0-104"><a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">        end (datetime): Timestamp when the feedback ended.</span>
-</span><span id="__span-0-105"><a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">        session_id (str): Foreign key linking to the session.</span>
-</span><span id="__span-0-106"><a id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="sd">        interleave (bool): Whether interleaving was applied during evaluation.</span>
-</span><span id="__span-0-107"><a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="sd">        results (list[Result]): Relationship to results associated with this feedback.</span>
-</span><span id="__span-0-108"><a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">        clicks (JSON): Click information or user interactions captured during the feedback.</span>
-</span><span id="__span-0-109"><a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-0-110"><a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;feedbacks&quot;</span>
-</span><span id="__span-0-111"><a id="__codelineno-0-111" name="__codelineno-0-111"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-0-112"><a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">timezone</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-0-113"><a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="n">end</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">timezone</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-0-114"><a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="n">session_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;sessions.id&quot;</span><span class="p">))</span>
-</span><span id="__span-0-115"><a id="__codelineno-0-115" name="__codelineno-0-115"></a>    <span class="n">interleave</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
-</span><span id="__span-0-116"><a id="__codelineno-0-116" name="__codelineno-0-116"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Result&quot;</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="s2">&quot;feedback&quot;</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s2">&quot;dynamic&quot;</span><span class="p">)</span>
-</span><span id="__span-0-117"><a id="__codelineno-0-117" name="__codelineno-0-117"></a>    <span class="n">clicks</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">JSON</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-114">114</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-94"><a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="k">class</span><span class="w"> </span><span class="nc">Feedback</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span><span id="__span-0-95"><a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-96"><a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">    Represents user feedback for a session result.</span>
+</span><span id="__span-0-97"><a id="__codelineno-0-97" name="__codelineno-0-97"></a>
+</span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">    Attributes:</span>
+</span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="sd">        id (int): Unique identifier of the feedback.</span>
+</span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="sd">        start (datetime): Timestamp when the feedback started.</span>
+</span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">        end (datetime): Timestamp when the feedback ended.</span>
+</span><span id="__span-0-102"><a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="sd">        session_id (str): Foreign key linking to the session.</span>
+</span><span id="__span-0-103"><a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">        interleave (bool): Whether interleaving was applied during evaluation.</span>
+</span><span id="__span-0-104"><a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">        results (list[Result]): Relationship to results associated with this feedback.</span>
+</span><span id="__span-0-105"><a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">        clicks (JSON): Click information or user interactions captured during the feedback.</span>
+</span><span id="__span-0-106"><a id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-107"><a id="__codelineno-0-107" name="__codelineno-0-107"></a>    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;feedbacks&quot;</span>
+</span><span id="__span-0-108"><a id="__codelineno-0-108" name="__codelineno-0-108"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-109"><a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">timezone</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-110"><a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="n">end</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">timezone</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-111"><a id="__codelineno-0-111" name="__codelineno-0-111"></a>    <span class="n">session_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;sessions.id&quot;</span><span class="p">))</span>
+</span><span id="__span-0-112"><a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="n">interleave</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
+</span><span id="__span-0-113"><a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Result&quot;</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="s2">&quot;feedback&quot;</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s2">&quot;dynamic&quot;</span><span class="p">)</span>
+</span><span id="__span-0-114"><a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="n">clicks</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">JSON</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
               </details>
 
@@ -1761,10 +1761,7 @@
 <span class="normal"><a href="#__codelineno-0-88">88</a></span>
 <span class="normal"><a href="#__codelineno-0-89">89</a></span>
 <span class="normal"><a href="#__codelineno-0-90">90</a></span>
-<span class="normal"><a href="#__codelineno-0-91">91</a></span>
-<span class="normal"><a href="#__codelineno-0-92">92</a></span>
-<span class="normal"><a href="#__codelineno-0-93">93</a></span>
-<span class="normal"><a href="#__codelineno-0-94">94</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">class</span><span class="w"> </span><span class="nc">Result</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-91">91</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">class</span><span class="w"> </span><span class="nc">Result</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 </span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    Represents the result of a user query or interaction in a session.</span>
 </span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34"></a>
@@ -1807,27 +1804,24 @@
 </span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        Serialize the result object into a dictionary.</span>
-</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74"></a>
-</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">        Returns:</span>
-</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">            dict: Serialized representation of the Result instance.</span>
-</span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78"></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79"></a>            <span class="s2">&quot;rid&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80"></a>            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_id</span><span class="p">,</span>
-</span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81"></a>            <span class="s2">&quot;system_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">system_id</span><span class="p">,</span>
-</span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82"></a>            <span class="s2">&quot;feedback_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_id</span><span class="p">,</span>
-</span><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83"></a>            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
-</span><span id="__span-0-84"><a id="__codelineno-0-84" name="__codelineno-0-84"></a>            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">,</span>
-</span><span id="__span-0-85"><a id="__codelineno-0-85" name="__codelineno-0-85"></a>            <span class="s2">&quot;q_date&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_date</span><span class="p">,</span>
-</span><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86"></a>            <span class="s2">&quot;q_time&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_time</span><span class="p">,</span>
-</span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87"></a>            <span class="s2">&quot;num_found&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_found</span><span class="p">,</span>
-</span><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88"></a>            <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">,</span>
-</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89"></a>            <span class="s2">&quot;rpp&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rpp</span><span class="p">,</span>
-</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90"></a>            <span class="s2">&quot;hits&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">hits</span><span class="p">,</span>
-</span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91"></a>            <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">,</span>
-</span><span id="__span-0-92"><a id="__codelineno-0-92" name="__codelineno-0-92"></a>            <span class="s2">&quot;tdi&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdi</span><span class="p">,</span>
-</span><span id="__span-0-93"><a id="__codelineno-0-93" name="__codelineno-0-93"></a>            <span class="s2">&quot;custom_response&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_response</span><span class="p">,</span>
-</span><span id="__span-0-94"><a id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="p">}</span>
+</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76"></a>            <span class="s2">&quot;rid&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77"></a>            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_id</span><span class="p">,</span>
+</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78"></a>            <span class="s2">&quot;system_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">system_id</span><span class="p">,</span>
+</span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79"></a>            <span class="s2">&quot;feedback_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_id</span><span class="p">,</span>
+</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80"></a>            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+</span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81"></a>            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">,</span>
+</span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82"></a>            <span class="s2">&quot;q_date&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_date</span><span class="p">,</span>
+</span><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83"></a>            <span class="s2">&quot;q_time&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_time</span><span class="p">,</span>
+</span><span id="__span-0-84"><a id="__codelineno-0-84" name="__codelineno-0-84"></a>            <span class="s2">&quot;num_found&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_found</span><span class="p">,</span>
+</span><span id="__span-0-85"><a id="__codelineno-0-85" name="__codelineno-0-85"></a>            <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">,</span>
+</span><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86"></a>            <span class="s2">&quot;rpp&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rpp</span><span class="p">,</span>
+</span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87"></a>            <span class="s2">&quot;hits&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">hits</span><span class="p">,</span>
+</span><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88"></a>            <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">,</span>
+</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89"></a>            <span class="s2">&quot;tdi&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdi</span><span class="p">,</span>
+</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90"></a>            <span class="s2">&quot;custom_response&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_response</span><span class="p">,</span>
+</span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
               </details>
 
@@ -1858,28 +1852,6 @@
     <div class="doc doc-contents ">
 
         <p>Serialize the result object into a dictionary.</p>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-<td><code>dict</code></td>            <td>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Serialized representation of the Result instance.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
 
     </div>
 
@@ -2229,7 +2201,10 @@
 
               <details class="mkdocstrings-source">
                 <summary>Source code in <code>app/web/app/models.py</code></summary>
-                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-120">120</a></span>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-117">117</a></span>
+<span class="normal"><a href="#__codelineno-0-118">118</a></span>
+<span class="normal"><a href="#__codelineno-0-119">119</a></span>
+<span class="normal"><a href="#__codelineno-0-120">120</a></span>
 <span class="normal"><a href="#__codelineno-0-121">121</a></span>
 <span class="normal"><a href="#__codelineno-0-122">122</a></span>
 <span class="normal"><a href="#__codelineno-0-123">123</a></span>
@@ -2246,30 +2221,27 @@
 <span class="normal"><a href="#__codelineno-0-134">134</a></span>
 <span class="normal"><a href="#__codelineno-0-135">135</a></span>
 <span class="normal"><a href="#__codelineno-0-136">136</a></span>
-<span class="normal"><a href="#__codelineno-0-137">137</a></span>
-<span class="normal"><a href="#__codelineno-0-138">138</a></span>
-<span class="normal"><a href="#__codelineno-0-139">139</a></span>
-<span class="normal"><a href="#__codelineno-0-140">140</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-120"><a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="k">class</span><span class="w"> </span><span class="nc">System</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-</span><span id="__span-0-121"><a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-0-122"><a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">    Represents an experimental system (ranker or recommender) in STELLA.</span>
-</span><span id="__span-0-123"><a id="__codelineno-0-123" name="__codelineno-0-123"></a>
-</span><span id="__span-0-124"><a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="sd">    Attributes:</span>
-</span><span id="__span-0-125"><a id="__codelineno-0-125" name="__codelineno-0-125"></a><span class="sd">        id (int): Unique identifier for the system.</span>
-</span><span id="__span-0-126"><a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="sd">        name (str): Name of the system.</span>
-</span><span id="__span-0-127"><a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="sd">        type (str): Type of the system, e.g., &#39;ranker&#39; or &#39;recommender&#39;.</span>
-</span><span id="__span-0-128"><a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">        results (list[Result]): Relationship to results generated by this system.</span>
-</span><span id="__span-0-129"><a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">        num_requests (int): Number of requests processed by this system.</span>
-</span><span id="__span-0-130"><a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">        system_type (str): Optional additional type information for the system.</span>
-</span><span id="__span-0-131"><a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">        num_requests_no_head (int): Number of requests excluding head queries.</span>
-</span><span id="__span-0-132"><a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-0-133"><a id="__codelineno-0-133" name="__codelineno-0-133"></a>    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;systems&quot;</span>
-</span><span id="__span-0-134"><a id="__codelineno-0-134" name="__codelineno-0-134"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-0-135"><a id="__codelineno-0-135" name="__codelineno-0-135"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-0-136"><a id="__codelineno-0-136" name="__codelineno-0-136"></a>    <span class="nb">type</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-0-137"><a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Result&quot;</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s2">&quot;dynamic&quot;</span><span class="p">)</span>
-</span><span id="__span-0-138"><a id="__codelineno-0-138" name="__codelineno-0-138"></a>    <span class="n">num_requests</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
-</span><span id="__span-0-139"><a id="__codelineno-0-139" name="__codelineno-0-139"></a>    <span class="n">system_type</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-0-140"><a id="__codelineno-0-140" name="__codelineno-0-140"></a>    <span class="n">num_requests_no_head</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-137">137</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-117"><a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="k">class</span><span class="w"> </span><span class="nc">System</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span><span id="__span-0-118"><a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-119"><a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="sd">    Represents an experimental system (ranker or recommender) in STELLA.</span>
+</span><span id="__span-0-120"><a id="__codelineno-0-120" name="__codelineno-0-120"></a>
+</span><span id="__span-0-121"><a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="sd">    Attributes:</span>
+</span><span id="__span-0-122"><a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">        id (int): Unique identifier for the system.</span>
+</span><span id="__span-0-123"><a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="sd">        name (str): Name of the system.</span>
+</span><span id="__span-0-124"><a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="sd">        type (str): Type of the system, e.g., &#39;ranker&#39; or &#39;recommender&#39;.</span>
+</span><span id="__span-0-125"><a id="__codelineno-0-125" name="__codelineno-0-125"></a><span class="sd">        results (list[Result]): Relationship to results generated by this system.</span>
+</span><span id="__span-0-126"><a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="sd">        num_requests (int): Number of requests processed by this system.</span>
+</span><span id="__span-0-127"><a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="sd">        system_type (str): Optional additional type information for the system.</span>
+</span><span id="__span-0-128"><a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">        num_requests_no_head (int): Number of requests excluding head queries.</span>
+</span><span id="__span-0-129"><a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-130"><a id="__codelineno-0-130" name="__codelineno-0-130"></a>    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;systems&quot;</span>
+</span><span id="__span-0-131"><a id="__codelineno-0-131" name="__codelineno-0-131"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-132"><a id="__codelineno-0-132" name="__codelineno-0-132"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-133"><a id="__codelineno-0-133" name="__codelineno-0-133"></a>    <span class="nb">type</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-134"><a id="__codelineno-0-134" name="__codelineno-0-134"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Result&quot;</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s2">&quot;dynamic&quot;</span><span class="p">)</span>
+</span><span id="__span-0-135"><a id="__codelineno-0-135" name="__codelineno-0-135"></a>    <span class="n">num_requests</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
+</span><span id="__span-0-136"><a id="__codelineno-0-136" name="__codelineno-0-136"></a>    <span class="n">system_type</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-137"><a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="n">num_requests_no_head</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
               </details>
 

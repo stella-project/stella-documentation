@@ -480,7 +480,25 @@
         <li class="md-nav__item">
   <a href="#what-is-the-stella-app" class="md-nav__link">
     <span class="md-ellipsis">
-      What is the STELLA APP?
+      What is the STELLA App?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-stella-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is the STELLA Server?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-stella-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a STELLA Microservice?
     </span>
   </a>
   
@@ -921,7 +939,7 @@
   
   
   <span class="md-ellipsis">
-    Micro-service
+    STELLA Micro-service
     
   </span>
   
@@ -1104,7 +1122,25 @@
         <li class="md-nav__item">
   <a href="#what-is-the-stella-app" class="md-nav__link">
     <span class="md-ellipsis">
-      What is the STELLA APP?
+      What is the STELLA App?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-stella-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is the STELLA Server?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-stella-microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a STELLA Microservice?
     </span>
   </a>
   
@@ -1130,17 +1166,36 @@
 
 
 <h1 id="introduction">Introduction</h1>
-<p>This is the introduction page for the site owner</p>
-<h3 id="what-is-the-stella-app">What is the STELLA APP?</h3>
-<p>The STELLA App is a multi-container application deployed at partner sites to:</p>
+<p>This page provides an overview of the STELLA infrastructure from the site owner’s perspective and explains the roles of the STELLA App and the STELLA Server.</p>
+<h2 id="what-is-the-stella-app">What is the STELLA App?</h2>
+<p>The <strong>STELLA App</strong> is a multi-container application deployed at partner sites. Its primary responsibilities are to:</p>
 <ul>
-<li>serve experimental rankings and recommendations</li>
-<li>collect user interaction feedback</li>
-<li>forward feedback data to the STELLA Server</li>
+<li>serve experimental ranking and recommendation results</li>
+<li>collect user interaction and feedback data</li>
+<li>forward collected feedback to the central STELLA Server</li>
 </ul>
-<p>It is composed of multiple micro-services built using the STELLA micro-template and is typically deployed via Docker Compose.</p>
-<p>The app acts as the execution and experimentation layer, while the STELLA Server acts as the data aggregation and persistence layer.</p>
-<hr />
+<p>The app is composed of multiple microservices built using the STELLA micro-template and is typically deployed using <strong>Docker Compose</strong>. It functions as the execution and experimentation layer within the STELLA ecosystem.</p>
+<h2 id="what-is-the-stella-server">What is the STELLA Server?</h2>
+<p>The <strong>STELLA Server</strong> is the central component of the STELLA infrastructure. It is responsible for:</p>
+<ul>
+<li>user and role administration</li>
+<li>providing access to administrative and analytical dashboards</li>
+<li>coordinating and managing STELLA App updates</li>
+<li>hosting the central database that stores user interaction logs and experimental data</li>
+</ul>
+<p>While the STELLA App operates locally at partner sites, the STELLA Server serves as the aggregation, coordination and persistence layer for the entire system.</p>
+<h2 id="what-is-a-stella-microservice">What is a STELLA Microservice?</h2>
+<p>A <strong>STELLA microservice</strong> is a Dockerized experimental ranking or recommendation system that integrates directly with the STELLA App.</p>
+<p>STELLA supports <strong>only Dockerized microservices</strong> for experimental systems. Each system runs as an independent container and exposes a well-defined REST API that the STELLA App uses at runtime to request rankings or recommendations.</p>
+<p>Using microservices enables:</p>
+<ul>
+<li>dynamic, real-time generation of rankings and recommendations</li>
+<li>experimentation without being limited to pre-defined queries or datasets</li>
+<li>isolation between experimental systems</li>
+<li>reproducible deployment and evaluation via Docker</li>
+</ul>
+<p>To simplify integration, STELLA provides a <strong>microservice template</strong> that defines the required API contract, request and response formats, and deployment structure. Experimenters adapt this template to wrap their experimental logic and deploy it alongside the STELLA App using Docker Compose.</p>
+<p>This microservice-based approach is the <strong>only supported mechanism</strong> for integrating experimental systems into the STELLA infrastructure.</p>
 
 
 

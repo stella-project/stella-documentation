@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#stella-server-environment-variables" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -745,6 +750,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Environment Variables
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -757,6 +777,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account-and-authentication-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account and Authentication Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -875,7 +950,7 @@
   
   
   <span class="md-ellipsis">
-    Micro-service
+    STELLA Micro-service
     
   </span>
   
@@ -1046,6 +1121,52 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account-and-authentication-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account and Authentication Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1064,9 +1185,107 @@
   
 
 
-  <h1>Environment Variables</h1>
-
-
+<h1 id="stella-server-environment-variables">STELLA Server Environment Variables</h1>
+<p>This document provides a complete reference for all environment variables used by the STELLA Server.  </p>
+<p>These variables control application configuration, experiment execution, system setup, server communication and database connectivity.</p>
+<p>All environment variables documented here are defined in the STELLA App <code>docker-compose.yml</code> and <code>docker-compose-dev.yml</code> files.  </p>
+<p>Unless explicitly stated otherwise, the same variables apply to both development and production deployments.</p>
+<h2 id="application-configuration">Application Configuration</h2>
+<table>
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FLASK_APP</code></td>
+<td>Flask application entry point. Specifies the import path of the server application.</td>
+</tr>
+<tr>
+<td><code>FLASK_CONFIG</code></td>
+<td>Selects the runtime configuration profile. The value <code>postgres</code> enables PostgreSQL-backed configuration.</td>
+</tr>
+<tr>
+<td><code>SECRET_KEY</code></td>
+<td>Secret key used by Flask for session signing and security-related features. Must be changed in production.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="account-and-authentication-configuration">Account and Authentication Configuration</h2>
+<p>The STELLA Server manages multiple roles with dedicated credentials. These are used for authentication between STELLA components and for administrative access.</p>
+<table>
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ADMIN_MAIL</code></td>
+<td>Email address for the administrator account.</td>
+</tr>
+<tr>
+<td><code>ADMIN_PASS</code></td>
+<td>Password for the administrator account.</td>
+</tr>
+<tr>
+<td><code>SITE_MAIL</code></td>
+<td>Email address used by site-level STELLA App instances to authenticate with the server.</td>
+</tr>
+<tr>
+<td><code>SITE_PASS</code></td>
+<td>Password associated with the site account.</td>
+</tr>
+<tr>
+<td><code>EXPERIMENTER_MAIL</code></td>
+<td>Email address for experimenter users.</td>
+</tr>
+<tr>
+<td><code>EXPERIMENTER_PASS</code></td>
+<td>Password for the experimenter account.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="database-configuration">Database Configuration</h2>
+<p>These variables define how the STELLA Server connects to its PostgreSQL database.</p>
+<table>
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POSTGRES_USER</code></td>
+<td>Username used to authenticate with the PostgreSQL database.</td>
+</tr>
+<tr>
+<td><code>POSTGRES_PW</code></td>
+<td>Password for the PostgreSQL user.</td>
+</tr>
+<tr>
+<td><code>POSTGRES_DB</code></td>
+<td>Name of the PostgreSQL database used by the STELLA Server.</td>
+</tr>
+<tr>
+<td><code>POSTGRES_URL</code></td>
+<td>Hostname and port of the PostgreSQL service in the Docker network (e.g. <code>db-server:5432</code>).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This configuration is intended for <strong>development use</strong> and enables hot reloading.</li>
+<li>All credentials shown here must be replaced with secure values in production deployments.</li>
+<li>The database service (<code>db-server</code>) runs inside the same Docker network and is not exposed externally except via port mapping for local development.</li>
+</ul>
 
 
 
