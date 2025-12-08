@@ -11,18 +11,18 @@ The STELLA Server API is **not intended to be exposed publicly**. In a standard 
 For local testing and validation of a STELLA setup, the STELLA Server API can be accessed via the following endpoints:
 
 
-- **STELLA App base URL:**  
-  `http://localhost:8080`
+- **STELLA  Server base URL:**  
+  `http://localhost:8000`
 
 - **Swagger / OpenAPI documentation:**  
-  `http://localhost:8080/docs`
+  `http://localhost:8000/docs`
 
 
 These endpoints are available only in development setups where ports are explicitly exposed.
 
 ## Server UI
 
-The STELLA Server UI is accessible at `http://localhost:8080`
+The STELLA Server UI is accessible at `http://localhost:8000`
 
 You can log in using any of the admin, user or site credentials.
 
