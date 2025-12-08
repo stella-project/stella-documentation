@@ -29,12 +29,12 @@ You can log in using any of the admin, user or site credentials.
 ![](../img/server-login.png)
 
 
-After logging in, the main dashboard is available at `http://localhost:8080/dashboard`
+After logging in, the main dashboard is available at `http://localhost:8000/dashboard`
 
 ![](../img/dashboard.png)
 
 
-All registered experimental and baseline systems can be viewed at `http://localhost:8080/systems`
+All registered experimental and baseline systems can be viewed at `http://localhost:8000/systems`
 
 ![](../img/systems.png)
 
@@ -49,7 +49,7 @@ The Swagger UI provides an interactive interface that allows users and developer
 - validate communication between the STELLA App and the STELLA Server
 - debug experiment execution, session handling and feedback ingestion
 
-The Swagger interface displays the current API version provided by the running STELLA Server instance and provides an interactive view of all available endpoints and would be available at `http://localhost:8080/docs`
+The Swagger interface displays the current API version provided by the running STELLA Server instance and provides an interactive view of all available endpoints and would be available at `http://localhost:8000/docs`
 
 ![](../img/server-swagger.png)
 

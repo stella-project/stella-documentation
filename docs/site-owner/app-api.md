@@ -8,10 +8,10 @@ This section describes how to access and interact with the STELLA App API once t
 The STELLA App exposes its REST API on the following endpoints:
 
 - **STELLA App base URL:**  
-  `http://localhost:8000`
+  `http://localhost:8080`
 
 - **Swagger / OpenAPI documentation:**  
-  `http://localhost:8000/docs`
+  `http://localhost:8080/docs`
 
 
 
@@ -23,7 +23,7 @@ The Swagger UI provides an interactive interface that allows users and developer
 - test API endpoints directly from the browser
 - trigger experimental workflows such as session creation, ranking and recommendation requests
 
-The Swagger interface displays the current API version provided by the running STELLA App instance and provides an interactive view of all available endpoints and would be available at  `http://localhost:8000/docs`. 
+The Swagger interface displays the current API version provided by the running STELLA App instance and provides an interactive view of all available endpoints and would be available at  `http://localhost:8080/docs`. 
 
 ![](../img/app-swagger.png)
 
