@@ -3,7 +3,6 @@
 
 This section documents how the STELLA App communicates with the STELLA Server, what data is stored on each side, how feedback is transferred and which configuration options control this behavior. The goal is to make the lifecycle of sessions, feedback and results explicit from an infrastructure and design perspective.
 
-
 ## Architectural Roles
 
 STELLA App
@@ -184,6 +183,8 @@ All communication is triggered by a scheduler-based cron service:
 + Refreshes authentication tokens
 + Sends completed sessions to the STELLA Server
 
+::: app.web.app.services.cron_service.check_db_sessions
+
 
 ## Configuration and Control (via Docker Compose)
 
@@ -196,3 +197,9 @@ Several behaviors are controlled through environment variables in the STELLA App
 | **SESSION_EXPIRATION** | Time (in seconds) after which a session is considered expired | Numeric (seconds) |
 | **SESSION_KILL**       | Optional hard timeout for incomplete sessions; triggers cleanup of partial data from STELLA App | Numeric (seconds), optional |
 | **DELETE_SENT_SESSION**| Deletes local data after successful transfer                  | Enabled → Local copy removed |
+
+## Feedback Handling
+
++ Queries without any associated feedback are **not** sent from the STELLA App to the STELLA Server.  
+
++ By default, each ranking or recommendation stored in the STELLA App database contains **three entries**, but only the **interleaved ranking** is transmitted to the server.
