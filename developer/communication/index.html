@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://example.com/resources/resources/">
+        <link rel="canonical" href="https://example.com/developer/communication/">
       
       
-        <link rel="prev" href="../../developer/common_issues/">
+        <link rel="prev" href="../initial_setup/">
       
+      
+        <link rel="next" href="../common_issues/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Resources - STELLA</title>
+        <title>App-Server Communication - STELLA</title>
       
     
     
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#resources-for-participants" class="md-skip">
+        <a href="#stella-app-server-communication" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Resources
+              App-Server Communication
             
           </span>
         </div>
@@ -934,18 +936,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -961,7 +965,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Developer
@@ -975,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   
@@ -998,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/initial_setup/" class="md-nav__link">
+      <a href="../initial_setup/" class="md-nav__link">
         
   
   
@@ -1018,10 +1022,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../developer/communication/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    App-Server Communication
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1032,6 +1058,140 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architectural-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architectural Roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-ownership-and-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Ownership and Storage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-lifecycle-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session Lifecycle (High-Level)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-and-token-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication and Token Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#app.web.app.services.cron_service.update_token" class="md-nav__link">
+    <span class="md-ellipsis">
+      update_token
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#site-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Site Identification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posting-workflow-to-the-stella-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Posting Workflow to the STELLA Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Posting Workflow to the STELLA Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-post-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Post Session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-post-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Post Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-post-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Post Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#periodic-execution-cron-based" class="md-nav__link">
+    <span class="md-ellipsis">
+      Periodic Execution (Cron-Based)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-and-control-via-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration and Control (via Docker Compose)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1044,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/common_issues/" class="md-nav__link">
+      <a href="../common_issues/" class="md-nav__link">
         
   
   
@@ -1071,30 +1231,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Resources
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../resources/resources/" class="md-nav__link">
         
   
   
@@ -1105,51 +1245,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources-for-participants" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources for Participants
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#github-repositories" class="md-nav__link">
-    <span class="md-ellipsis">
-      GitHub Repositories
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lilas-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lilas-Lab
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1171,6 +1266,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1179,27 +1276,114 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#resources-for-participants" class="md-nav__link">
+  <a href="#architectural-roles" class="md-nav__link">
     <span class="md-ellipsis">
-      Resources for Participants
+      Architectural Roles
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#github-repositories" class="md-nav__link">
+  <a href="#data-ownership-and-storage" class="md-nav__link">
     <span class="md-ellipsis">
-      GitHub Repositories
+      Data Ownership and Storage
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lilas-lab" class="md-nav__link">
+  <a href="#session-lifecycle-high-level" class="md-nav__link">
     <span class="md-ellipsis">
-      Lilas-Lab
+      Session Lifecycle (High-Level)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-and-token-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication and Token Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#app.web.app.services.cron_service.update_token" class="md-nav__link">
+    <span class="md-ellipsis">
+      update_token
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#site-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Site Identification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posting-workflow-to-the-stella-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Posting Workflow to the STELLA Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Posting Workflow to the STELLA Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-post-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Post Session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-post-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Post Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-post-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Post Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#periodic-execution-cron-based" class="md-nav__link">
+    <span class="md-ellipsis">
+      Periodic Execution (Cron-Based)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-and-control-via-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration and Control (via Docker Compose)
     </span>
   </a>
   
@@ -1224,36 +1408,252 @@
   
 
 
-  <h1>Resources</h1>
+<h1 id="stella-app-server-communication">STELLA App-Server Communication</h1>
+<p>This section documents how the STELLA App communicates with the STELLA Server, what data is stored on each side, how feedback is transferred and which configuration options control this behavior. The goal is to make the lifecycle of sessions, feedback and results explicit from an infrastructure and design perspective.</p>
+<h2 id="architectural-roles">Architectural Roles</h2>
+<p>STELLA App</p>
+<ul>
+<li>Deployed at partner sites</li>
+<li>Interfaces directly with the user-facing portal</li>
+<li>Executes experimental ranking/recommendation systems</li>
+<li>Collects user interactions and feedback</li>
+<li>Temporarily stores sessions, feedback, and results locally</li>
+<li>Periodically forwards completed data to the STELLA Server</li>
+</ul>
+<p>STELLA Server</p>
+<ul>
+<li>Acts as the central aggregation and persistence layer</li>
+<li>Stores finalized experiment data across all sites</li>
+<li>Manages users, sites, systems and long-term logs</li>
+<li>Provides dashboards and analytics</li>
+</ul>
+<h2 id="data-ownership-and-storage">Data Ownership and Storage</h2>
+<p>Stored in the STELLA App</p>
+<p>The STELLA App maintains a local postgres database containing:</p>
+<ul>
+<li>Sessions – User interaction periods at a site</li>
+<li>Feedback – Clicks and interaction signals per session</li>
+<li>Results – Rankings or recommendations shown to users</li>
+<li>Systems – Locally registered experimental systems (mirrors server-side systems for execution)</li>
+</ul>
+<p>Stored in the STELLA Server</p>
+<p>The STELLA Server permanently stores:</p>
+<ul>
+<li>Sessions (metadata only)</li>
+<li>Feedback records</li>
+<li>Rankings and recommendation results</li>
+<li>Site, user, and system identifiers</li>
+</ul>
+<p>Once data is successfully transferred, it can optionally be deleted from the STELLA App database. This can be configured using the <code>SESSION_KILL</code> ENV variable which is an optional variable which can be set to a value (in seconds) or left to None if no data should be deleted from the app (although it is recommended that the data be transfered to the server.)</p>
+<h2 id="session-lifecycle-high-level">Session Lifecycle (High-Level)</h2>
+<ol>
+<li>
+<p>Session starts</p>
+<ul>
+<li>User interacts with the portal</li>
+<li>STELLA App creates a local Session</li>
+</ul>
+</li>
+<li>
+<p>Results served</p>
+<ul>
+<li>Ranking/recommendation systems return result lists</li>
+<li>Results are stored locally and linked to sessions</li>
+</ul>
+</li>
+<li>
+<p>User interactions</p>
+<ul>
+<li>Each click is sent from the portal to the STELLA App as a JSON object (payload)</li>
+<li>Feedback is immediately persisted locally</li>
+</ul>
+</li>
+<li>
+<p>Session expiration</p>
+<ul>
+<li>Sessions expire based on timeouts</li>
+<li>Completion is inferred from whether feedback contains results</li>
+</ul>
+</li>
+<li>
+<p>Data forwarding</p>
+<ul>
+<li>Completed sessions are sent to the STELLA Server asynchronously</li>
+<li>Controlled via configuration (see below)</li>
+</ul>
+</li>
+</ol>
+<h2 id="authentication-and-token-management">Authentication and Token Management</h2>
+<p>Token Retrieval</p>
+<p>The STELLA App authenticates with the STELLA Server using a token-based mechanism:</p>
+<ul>
+<li>Credentials (<code>STELLA_SERVER_USER</code>, <code>STELLA_SERVER_PASS</code>) are used to request a token via:</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>POST /tokens
+</span></code></pre></div>
+<p>The response includes:</p>
+<ul>
+<li><code>token</code></li>
+<li><code>expiration</code> (in seconds)</li>
+</ul>
+<p>The App:</p>
+<ul>
+<li>Stores the token in memory</li>
+<li>Refreshes it automatically 5 minutes before expiration</li>
+</ul>
+<p>Token refresh is handled in  <code>update_token()</code>.</p>
 
-<h2 id="resources-for-participants">Resources for Participants</h2>
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="app.web.app.services.cron_service.update_token"></a>
+    <div class="doc doc-contents first">
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>app/web/app/services/cron_service.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span>
+<span class="normal"><a href="#__codelineno-0-69">69</a></span>
+<span class="normal"><a href="#__codelineno-0-70">70</a></span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span>
+<span class="normal"><a href="#__codelineno-0-75">75</a></span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="k">def</span><span class="w"> </span><span class="nf">update_token</span><span class="p">():</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="n">r</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54"></a>            <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;STELLA_SERVER_API&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/tokens&quot;</span><span class="p">,</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55"></a>            <span class="n">auth</span><span class="o">=</span><span class="p">(</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56"></a>                <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;STELLA_SERVER_USER&quot;</span><span class="p">],</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57"></a>                <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;STELLA_SERVER_PASS&quot;</span><span class="p">],</span>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58"></a>            <span class="p">),</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="p">)</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">except</span> <span class="ne">ConnectionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="n">current_app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connection error while getting token from STELLA server&quot;</span><span class="p">)</span>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64"></a>        <span class="k">return</span>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">current_app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;HTTP error while getting token from STELLA server: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="k">return</span>
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68"></a>
+</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="n">r_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Received new token from Stella Server.&quot;</span><span class="p">,</span> <span class="n">r_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">))</span>
+</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="n">delta_exp</span> <span class="o">=</span> <span class="n">r_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;expiration&quot;</span><span class="p">)</span>
+</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="c1"># get new token five min (300 s) before expiration</span>
+</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;TOKEN_EXPIRATION&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span>
+</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="n">seconds</span><span class="o">=</span><span class="n">delta_exp</span> <span class="o">-</span> <span class="mi">300</span>
+</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="p">)</span>
+</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;STELLA_SERVER_TOKEN&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><h2 id="site-identification">Site Identification</h2>
+<p>Before posting any data, the STELLA App resolves its site identifier:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GET /sites/{STELLA_SERVER_USERNAME}
+</span></code></pre></div>
+<h2 id="posting-workflow-to-the-stella-server">Posting Workflow to the STELLA Server</h2>
+<p>Once a session is marked as exited, the following sequence occurs:</p>
+<h3 id="1-post-session">1. Post Session</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>POST /sites/{site_id}/sessions
+</span></code></pre></div>
+<p>Sent data includes:</p>
 <ul>
-<li><a href="https://youtu.be/td71hc5Ysvs">YouTube - LiLAS@CLEF21: Implementing a recommendation service</a></li>
-<li><a href="https://github.com/stella-project/stella-micro-template">GitHub - Micro template</a></li>
+<li>Site user identifier</li>
+<li>Session start time</li>
+<li>Ranking system name</li>
+<li>Recommendation system name</li>
 </ul>
-<h2 id="github-repositories">GitHub Repositories</h2>
+<p>The server returns a <code>session_id</code> used in all subsequent requests.</p>
+<h3 id="2-post-feedback">2. Post Feedback</h3>
+<p>For each feedback entry in the session:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>POST /sessions/{session_id}/feedbacks
+</span></code></pre></div>
+<p>Payload includes:</p>
 <ul>
-<li>
-<p><a href="https://stella-project.org/">Main Website</a></p>
-</li>
-<li>
-<p><a href="https://github.com/stella-project/">STELLA Project (GitHub Organization)</a></p>
-</li>
-<li>
-<p><a href="https://github.com/stella-project/stella-app">STELLA App</a></p>
-</li>
-<li>
-<p><a href="https://github.com/stella-project/stella-service">STELLA Server</a></p>
-</li>
-<li>
-<p><a href="https://github.com/stella-project/stella-micro-template">STELLA Microservice Template</a></p>
-</li>
-<li>
-<p><a href="https://github.com/stella-project/stella-search">STELLA Search (Mock Search Service)</a></p>
-</li>
+<li>Start/end timestamps</li>
+<li>Interleaving method (if any)</li>
+<li>Click data (JSON)</li>
 </ul>
-<h2 id="lilas-lab">Lilas-Lab</h2>
-<p>The Lilas-Lab was a CLEF lab held in 2021 that employed STELLA for Living-Lab Experiments.</p>
+<p>The server responds with a feedback_id.</p>
+<h3 id="3-post-results">3. Post Results</h3>
+<p>For each result associated with the feedback:</p>
+<p>System ID is resolved remotely:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GET /system/id/{system_name}
+</span></code></pre></div>
+<p>Result data is then posted as either:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>POST /feedbacks/{feedback_id}/rankings
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>POST /feedbacks/{feedback_id}/recommendations
+</span></code></pre></div>
+<p>Payload includes:</p>
+<ul>
+<li>Query metadata</li>
+<li>Paging details</li>
+<li>Number of results</li>
+<li>Serialized items list</li>
+</ul>
+<h2 id="periodic-execution-cron-based">Periodic Execution (Cron-Based)</h2>
+<p>All communication is triggered by a scheduler-based cron service:</p>
+<ul>
+<li>Periodically checks the local database</li>
+<li>Updates session expiration</li>
+<li>Refreshes authentication tokens</li>
+<li>Sends completed sessions to the STELLA Server</li>
+</ul>
+<h2 id="configuration-and-control-via-docker-compose">Configuration and Control (via Docker Compose)</h2>
+<p>Several behaviors are controlled through environment variables in the STELLA App deployment:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Values / Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SENDFEEDBACK</strong></td>
+<td>Controls whether sessions, feedback and results are sent to the STELLA Server</td>
+<td><strong>True</strong> → Send data to server<br><strong>False</strong> → Keep all data local</td>
+</tr>
+<tr>
+<td><strong>SESSION_EXPIRATION</strong></td>
+<td>Time (in seconds) after which a session is considered expired</td>
+<td>Numeric (seconds)</td>
+</tr>
+<tr>
+<td><strong>SESSION_KILL</strong></td>
+<td>Optional hard timeout for incomplete sessions; triggers cleanup of partial data from STELLA App</td>
+<td>Numeric (seconds), optional</td>
+</tr>
+<tr>
+<td><strong>DELETE_SENT_SESSION</strong></td>
+<td>Deletes local data after successful transfer</td>
+<td>Enabled → Local copy removed</td>
+</tr>
+</tbody>
+</table>
 
 
 

@@ -2,110 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://example.com/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/about/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/developer/common_issues/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/developer/communication/</loc>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/developer/initial_setup/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/developer/introduction/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/researcher/introduction/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/researcher/participants-ranking/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/researcher/participants-recommender-publications/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/resources/resources/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/app-api/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/app-database-schema/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/app-docker-setup/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/app-env/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/app-init-db/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/app-rest/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/app-start/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/app/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/introduction/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/micro-service/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/server-api/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/server-database-schema/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/server-docker-setup/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/server-env/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/server-init-db/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/server-rest/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/server-start/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
          <loc>https://example.com/site-owner/server/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
 </urlset>
