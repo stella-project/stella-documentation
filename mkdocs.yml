@@ -76,6 +76,8 @@ nav:
   - "Setup for Local Developement": developer/initial_setup.md
   - "App-Server Communication": developer/communication.md
   - "Common Issues": developer/common_issues.md
+  
+- Best Practices: best-practices.md
 
 - Resources: resources/resources.md
 

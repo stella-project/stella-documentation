@@ -5,3 +5,38 @@
   --md-primary-fg-color--dark:  #90030C;
 }
 
+/* Subtle FAQ question styling (best-practices.md) */
+.md-typeset .faq-question {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 1.6rem 0 0.45rem;
+  padding: 0.55rem 0.8rem;
+  background: color-mix(in srgb, var(--md-primary-fg-color) 5%, var(--md-default-bg-color));
+  border-left: 3px solid color-mix(in srgb, var(--md-primary-fg-color) 28%, transparent);
+  border-radius: 0 5px 5px 0;
+  font-weight: 600;
+  font-size: 0.93em;
+  line-height: 1.45;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .faq-question::before {
+  flex-shrink: 0;
+  margin-top: 0.1em;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--md-primary-fg-color--light);
+  background: color-mix(in srgb, var(--md-primary-fg-color) 10%, var(--md-default-bg-color));
+  border: 1px solid color-mix(in srgb, var(--md-primary-fg-color) 14%, transparent);
+  padding: 0.2rem 0.38rem;
+  border-radius: 4px;
+}
+
+.md-typeset h2 + .faq-question,
+.md-typeset h3 + .faq-question {
+  margin-top: 0.85rem;
+}
+
