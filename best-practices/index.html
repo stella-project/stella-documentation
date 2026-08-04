@@ -1,0 +1,1728 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/best-practices/">
+      
+      
+        <link rel="prev" href="../developer/common_issues/">
+      
+      
+        <link rel="next" href="../resources/resources/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Best Practices - STELLA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#best-practices-for-interleaved-retrieval-experiments-with-stella" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="STELLA" class="md-header__button md-logo" aria-label="STELLA" data-md-component="logo">
+      
+  <img src="../img/stella-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STELLA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Best Practices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/stella-project" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    stella-project
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="STELLA" class="md-nav__button md-logo" aria-label="STELLA" data-md-component="logo">
+      
+  <img src="../img/stella-logo.png" alt="logo">
+
+    </a>
+    STELLA
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/stella-project" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    stella-project
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Researcher
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Researcher
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../researcher/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../researcher/participants-ranking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorial: Ranker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../researcher/participants-recommender-publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorial: Recommender
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Site Owner
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Site Owner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    STELLA App
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            STELLA App
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/app/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/app-docker-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuring Docker Compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/app-env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/app-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Starting App Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/app-init-db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Initialising the Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/app-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoints and API Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/app-rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST API Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/app-database-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    STELLA Server
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            STELLA Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/server-docker-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuring Docker Compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/server-env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/server-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Starting Server Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/server-init-db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Initialising the Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/server-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoints and API Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/server-rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST API Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/server-database-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-owner/micro-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STELLA Micro-service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Developer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Developer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/initial_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup for Local Developement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/communication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    App-Server Communication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/common_issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-understand-interleaving" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Understand interleaving
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-design-your-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Design your experiment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-plan-experiment-duration" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Plan experiment duration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Plan experiment duration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ready-to-use-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ready-to-use calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-execute-and-measure" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Execute and measure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Execute and measure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ready-to-use-significance-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ready-to-use significance calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-interpret" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Interpret
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-understand-interleaving" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Understand interleaving
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-design-your-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Design your experiment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-plan-experiment-duration" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Plan experiment duration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Plan experiment duration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ready-to-use-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ready-to-use calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-execute-and-measure" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Execute and measure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Execute and measure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ready-to-use-significance-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ready-to-use significance calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-interpret" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Interpret
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="best-practices-for-interleaved-retrieval-experiments-with-stella">Best Practices for Interleaved Retrieval Experiments with STELLA</h1>
+<p><strong>Last updated:</strong> August 2026</p>
+<p>This guide walks through what you need to run a valid interleaved retrieval experiment with STELLA from setup to interpretation.</p>
+<hr />
+<h2 id="1-understand-interleaving">1. Understand interleaving</h2>
+<p class="faq-question">What is interleaving?</p>
+
+<p>Interleaving is an online evaluation technique used to compare two or more ranking systems (e.g., search engines, recommendation systems) directly against each other using real user behavior.</p>
+<p>The core idea is simple: for a single user query, STELLA fetches results from both a <strong>baseline</strong> system (<code>base</code>) and an <strong>experimental</strong> system (<code>exp</code>). Both rankings are then combined: "interleaved" into a single, unified list, which is shown to the user as one blended result set. The better system is determined by which system's documents the user actually clicks on.</p>
+<p>We use interleaving because it's a highly sensitive and efficient way to measure user preference between two rankers in a live environment. Rather than inferring preference indirectly from aggregate metrics, interleaving directly asks: <em>given these two sets of results, which do you prefer?</em></p>
+<p class="faq-question">Why bother with interleaving instead of A/B testing?</p>
+
+<p>A/B tests compare two separate user groups. Interleaving compares two rankers on the <strong>same query, same user, same moment</strong>. While traditional A/B testing is a powerful tool, interleaving is often superior for evaluating ranking changes. In an A/B test, a change in Click Through Rate (CTR) could stem from your system update or from different user cohorts, varying query types, time-of-day effects or random chance. Interleaving cancels out most of that noise because both systems are judged by the same user on the same query simultaneously.</p>
+<p><strong>Rule of thumb:</strong> use interleaving when you're evaluating ranking quality. Use A/B when you're changing something that affects the whole experience (UI redesign, pricing, onboarding).</p>
+<p class="faq-question">What algorithm does STELLA use?</p>
+
+<p>Team Draft Interleaving (TDI).</p>
+<p class="faq-question">How does TDI work in plain terms?</p>
+
+<p>It works like picking teams for a school sports game:</p>
+<ol>
+<li>Two team captains are designated: one for Team Baseline and one for Team Experimental.</li>
+<li>To fill the first slot in the interleaved list, we flip a coin to decide which captain picks first.</li>
+<li>The chosen captain picks the best player (document) from their original result list that hasn't been picked yet.</li>
+<li>The other captain then does the same.</li>
+<li>Then we start again from step 2 by flipping a coin again and continue taking turns until the interleaved list is full.</li>
+</ol>
+<p>STELLA tags every slot as <code>BASE</code> or <code>EXP</code> so clicks can be attributed correctly. If one system returns fewer results or times out, baseline results are used to pad the list (see section: <a href="#2-design-your-experiment"><em>What biases do I need to prevent?</em></a>).</p>
+<p class="faq-question">Are there other interleaving methods?</p>
+
+<p>Yes. Balanced Interleaving is more prone to positional biases; Probabilistic Interleaving is more experimental. STELLA ships with TDI as the standard. It is best to not swap algorithms mid-experiment.</p>
+<hr />
+<h2 id="2-design-your-experiment">2. Design your experiment</h2>
+<p>Careful planning is crucial for a successful experiment with valid results. This phase ensures your experiment is well-defined, properly scoped and free from common biases.</p>
+<p><strong>What you need:</strong> one baseline system, one experimental system, one hypothesis and a valid configuration.</p>
+<p class="faq-question">What are the two systems I'm comparing?</p>
+
+<p>Every experiment involves at least two retrieval systems:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Baseline</strong></td>
+<td>Current production ranker/recommender. The standard you compare against what the experiment system could replace.</td>
+</tr>
+<tr>
+<td><strong>Experimental</strong></td>
+<td>Your new system. It should incorporate <strong>one specific change</strong> tied to your hypothesis. If you change the model, the features, <em>and</em> the diversification logic at once, you won't know what helped.</td>
+</tr>
+</tbody>
+</table>
+<p class="faq-question">What should I change in the experimental system?</p>
+
+<p>Only what your hypothesis requires. Some typical changes:</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis type</th>
+<th>Example change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Semantic vs keyword retrieval</td>
+<td>Swap a phrase/keyword search backend for a vector/embedding-based search backend</td>
+</tr>
+<tr>
+<td>New re-ranker</td>
+<td>Add a post-retrieval scoring step before returning results</td>
+</tr>
+<tr>
+<td>Different index</td>
+<td>Swap the underlying index or vector collection</td>
+</tr>
+</tbody>
+</table>
+<p>Whatever you change, keep the response shape identical: same fields, same document identifier key, same number of results per page. If the experimental wrapper returns a different schema than the baseline, STELLA can't merge and attribute clicks correctly.</p>
+<p class="faq-question">What does a good hypothesis look like?</p>
+
+<p>It's tempting to skip this and just ask "which system performs better?" but that question is too broad to design an experiment around. It doesn't tell you what to change, what to expect or how to interpret a win. A hypothesis narrows this down: it names the one change you're making and the effect you expect from it, so the result is actually actionable regardless of outcome.</p>
+<p>A good hypothesis is specific and testable. Examples:</p>
+<ul>
+<li><em>"Vector search will outperform phrase search on natural-language queries."</em></li>
+<li><em>"Re-ranking with metadata boosts will lift click-through on facet-filtered searches."</em></li>
+<li><em>"A larger embedding model improves win rate on ambiguous single-word queries."</em></li>
+</ul>
+<p class="faq-question">What biases do I need to prevent?</p>
+
+<p>Interleaving removes a lot of the noise inherent in A/B testing, but it isn't automatically bias-free. A few specific biases can invalidate an otherwise well-designed experiment:</p>
+<table>
+<thead>
+<tr>
+<th>Bias</th>
+<th>What goes wrong</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Presentation</strong></td>
+<td>The results from both systems must look identical. Differences in titles, snippets, fonts or images will invalidate the experiment, since users might click based on presentation rather than relevance.</td>
+<td>Render both rankers/recommenders through the same UI template. Users must not be able to tell which system served a given result.</td>
+</tr>
+<tr>
+<td><strong>Attractiveness</strong></td>
+<td>If results expose their source such as a specific brand, author or publisher, users might prefer one source over another regardless of how well the ranker actually performed.</td>
+<td>Strip or normalize source indicators so both rankings are judged on relevance alone, not on where the result came from.</td>
+</tr>
+<tr>
+<td><strong>System performance (latency / availability)</strong></td>
+<td>A candidate system can lose an experiment unfairly due to technical issues rather than genuine ranking quality. If a system does not respond in a timely manner, STELLA falls back to the baseline system, meaning the candidate never actually competed for that slot.</td>
+<td>Monitor error rates and response times closely. A broken or slow candidate can look like it's losing fairly when it was never given a fair shot.</td>
+</tr>
+<tr>
+<td><strong>Result padding</strong></td>
+<td>If a system can't provide enough results, the ranking list is padded with baseline results. This keeps the user experience intact, but it also dilutes the comparison since padded slots aren't a genuine test of the experiment.</td>
+<td>Check padding rates in your logs. High padding rates mean your experimental system isn't really in the fight for a meaningful share of the list.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-plan-experiment-duration">3. Plan experiment duration</h2>
+<p>With the hypothesis in place, the duration of the experiment can be planned. </p>
+<p><strong>What you need:</strong> a target minimum detectable effect (MDE), significance level, power, tie-rate estimate and a fixed stopping point before launch.</p>
+<p>The idea here is to plug in a few honest estimates about your traffic and how big a change you expect and get back a number of clicks and days to run for. The calculator at the end of this section does that for you; the rest is just explaining what the inputs mean.</p>
+<p class="faq-question">How many clicks do I need?</p>
+
+<p>You need enough <strong>decisive</strong> sessions — sessions where one system clearly got more clicks than the other. Ties don't count toward the sample size because when both systems are equally good, the session is inconclusive.</p>
+<p>Before you start, decide on three things:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Typical value</th>
+<th>What it means in practice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>α (significance)</strong></td>
+<td>0.05</td>
+<td>How often you're willing to call a fluke a real win. Lower (e.g. 0.01) is more conservative but needs more data.</td>
+</tr>
+<tr>
+<td><strong>Power (1 − β)</strong></td>
+<td>0.80</td>
+<td>How confident you want to be that you will catch a real improvement if one exists. Higher (e.g. 0.90) needs more data.</td>
+</tr>
+<tr>
+<td><strong>MDE (minimum detectable effect)</strong></td>
+<td>0.51–0.55 win rate</td>
+<td>Smallest lift you actually care about. 0.50 = tie. 0.51 = 51 wins per 100 decisive sessions. A radical change might justify 55%; a small tweak might target 51%. Smaller MDE needs a much larger sample.</td>
+</tr>
+</tbody>
+</table>
+<p class="faq-question">Why does the sample size grow so fast for small changes?</p>
+
+<p>Intuitively, a big obvious improvement (say, one system wins 55 times out of 100) is easy to spot with a small sample, it stands out from noise quickly. A subtle improvement (51 out of 100) looks almost identical to a coin flip in a small sample, so you need to collect a lot more sessions before the pattern is reliably distinguishable from chance. This is why a 55% MDE experiment finishes far sooner than a 51% MDE experiment.</p>
+<p>The math behind this is a standard two-proportion statistical test. For day-to-day planning, the calculator below does this calculation for you.</p>
+<p class="faq-question">How do we account for a large proportion of ties in our sample size?</p>
+
+<p>The sample size above only counts decisive sessions, but in practice many queries end in ties, especially when the experimental system introduces only a small change, since similar rankings tend to produce similar clicks. That means you need to collect more total clicks than the decisive count alone.</p>
+<p>Estimate a <strong>tie rate</strong>: how often you expect both systems to get an equal number of clicks. The similarity of both rankings is a good starting point for a guess, and it's safer to overestimate than underestimate. Similar rankers often tie 30–50% of the time, if you are unsure, start there.</p>
+<p class="faq-question">How do I convert clicks to calendar days?</p>
+
+<p>Once you know the total clicks you need, divide by how many clicks your platform actually produces per day (your daily queries × your click-through rate). That gives you a rough minimum number of days to run the experiment. Always add some buffer on top for weekends, traffic spikes and the uncertainty in your tie-rate guess.</p>
+<h3 id="ready-to-use-calculator">Ready-to-use calculator</h3>
+<p>Fill in your own <code>alpha</code>, <code>power</code>, <code>mde</code>, <code>tie_rate</code>, <code>daily_queries</code> and <code>ctr</code> and run this to get a sample-size and duration estimate:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># --- Inputs: adjust these for your experiment ---</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>           <span class="c1"># significance level</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">power</span> <span class="o">=</span> <span class="mf">0.80</span>           <span class="c1"># statistical power (1 - beta)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">mde</span> <span class="o">=</span> <span class="mf">0.51</span>             <span class="c1"># minimum detectable effect, e.g. 0.51 for a small lift</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">tie_rate</span> <span class="o">=</span> <span class="mf">0.40</span>        <span class="c1"># estimated fraction of sessions that end in a tie</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">daily_queries</span> <span class="o">=</span> <span class="mi">5000</span>   <span class="c1"># average daily search queries on your platform</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">ctr</span> <span class="o">=</span> <span class="mf">0.10</span>             <span class="c1"># average click-through rate per query</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># --- Calculation ---</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">p0</span> <span class="o">=</span> <span class="mf">0.5</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">p1</span> <span class="o">=</span> <span class="n">mde</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">z_alpha</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># two-sided critical value for alpha</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">z_beta</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">power</span><span class="p">)</span>            <span class="c1"># critical value for power</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">numerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_alpha</span> <span class="o">*</span> <span class="p">(</span><span class="n">p0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p0</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">z_beta</span> <span class="o">*</span> <span class="p">(</span><span class="n">p1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p1</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">denominator</span> <span class="o">=</span> <span class="p">(</span><span class="n">p1</span> <span class="o">-</span> <span class="n">p0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">n_decisive</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">n_total_clicks</span> <span class="o">=</span> <span class="n">n_decisive</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tie_rate</span><span class="p">)</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">days_needed</span> <span class="o">=</span> <span class="n">n_total_clicks</span> <span class="o">/</span> <span class="p">(</span><span class="n">daily_queries</span> <span class="o">*</span> <span class="n">ctr</span><span class="p">)</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Decisive sessions needed:   </span><span class="si">{</span><span class="n">n_decisive</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total clicks needed:        </span><span class="si">{</span><span class="n">n_total_clicks</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estimated experiment days:  </span><span class="si">{</span><span class="n">days_needed</span><span class="si">:</span><span class="s2">,.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Example output with <code>alpha=0.05</code>, <code>power=0.80</code>, <code>mde=0.51</code>, <code>tie_rate=0.40</code>, <code>daily_queries=5000</code>, <code>ctr=0.10</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Decisive sessions needed:   ~19,620
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Total clicks needed:        ~32,700
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Estimated experiment days:  ~65.4
+</span></code></pre></div>
+<p>Tighten <code>mde</code> toward 0.50 or lower <code>tie_rate</code> estimates conservatively since both increase the required sample size, so treat the output as a floor, not a target.</p>
+<hr />
+<h2 id="4-execute-and-measure">4. Execute and measure</h2>
+<p>Once the experiment is designed, the next phase is running it, collecting data and reading the results correctly. This section covers what to look at while the experiment runs and how to know when a result is trustworthy.</p>
+<p><strong>What you need:</strong> the experiment running to your pre-planned sample size, with health checks only and no early stopping based on p-values.</p>
+<p class="faq-question">What metrics matter for interleaving?</p>
+
+<p>Interleaving moves away from absolute metrics like standard CTR and focuses on a <strong>relative</strong> comparison between the two systems. When a user interacts with results, STELLA tracks which system "drafted" the clicked items:</p>
+<table>
+<thead>
+<tr>
+<th>Outcome</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Win</strong></td>
+<td>Experimental system received more clicks than baseline in a session</td>
+</tr>
+<tr>
+<td><strong>Loss</strong></td>
+<td>Baseline received more clicks</td>
+</tr>
+<tr>
+<td><strong>Tie</strong></td>
+<td>Equal clicks on both (excluded from win-rate calculation)</td>
+</tr>
+</tbody>
+</table>
+<p>The STELLA Server dashboard shows these impressions, clicks split by <code>BASE</code>/<code>EXP</code>, and overall CTR for monitoring, but the ultimate decision metric is: </p>
+<p><strong>win rate</strong> = <code>wins / (wins + losses)</code></p>
+<p class="faq-question">Where is this calculated?</p>
+
+<p>Within the STELLA Server's codebase, <code>stella-server/web/app/dashboard.py</code> aggregates feedback per session and computes wins/losses/ties from click <code>type</code> fields (<code>BASE</code> or <code>EXP</code>).</p>
+<p class="faq-question">How do I know if the result is real?</p>
+
+<p>Your experiment might show a 52% win rate, slightly outperforming baseline.  But is that a genuine, repeatable improvement or just noise?</p>
+<p>The more decisive sessions you collect, the more confidently a win rate above 50% reflects a real preference rather than luck. After you have collected your pre-planned sample, plug your win and loss counts into the calculator below. It tells you two things:</p>
+<p><strong>Is this likely to be a fluke?</strong></p>
+<p>If the chance of seeing a result this strong purely by luck is low (below 5%), the result is considered statistically significant.</p>
+<p><strong>What's the plausible range for the true win rate?</strong></p>
+<p>Rather than trusting the single number (like "52%") exactly, you get a range it probably falls within. If that whole range is above 50%, that's a strong sign the experimental system is a genuine winner. STELLA's dashboard shows the win/loss/tie breakdown as it accumulates, but running the numbers yourself once the experiment is complete gives you the clearest answer.</p>
+<h3 id="ready-to-use-significance-calculator">Ready-to-use significance calculator</h3>
+<p>Fill in your actual <code>wins</code> and <code>losses</code> (ties don't count) and run this to get a straight answer (there is no need to change anything below the inputs)</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">binomtest</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># --- Inputs: your actual results from the completed experiment ---</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">wins</span> <span class="o">=</span> <span class="mi">2600</span>     <span class="c1"># sessions where the experimental system got more clicks</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">losses</span> <span class="o">=</span> <span class="mi">2400</span>   <span class="c1"># sessions where the baseline got more clicks</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># --- Calculation ---</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">decisive</span> <span class="o">=</span> <span class="n">wins</span> <span class="o">+</span> <span class="n">losses</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">win_rate</span> <span class="o">=</span> <span class="n">wins</span> <span class="o">/</span> <span class="n">decisive</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">result</span> <span class="o">=</span> <span class="n">binomtest</span><span class="p">(</span><span class="n">wins</span><span class="p">,</span> <span class="n">decisive</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">p_value</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">pvalue</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">ci_low</span><span class="p">,</span> <span class="n">ci_high</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">proportion_ci</span><span class="p">(</span><span class="n">confidence_level</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Win rate:              </span><span class="si">{</span><span class="n">win_rate</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p-value:               </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;95% confidence range:  [</span><span class="si">{</span><span class="n">ci_low</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ci_high</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="k">if</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="mf">0.05</span> <span class="ow">and</span> <span class="n">ci_low</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">→ Statistically significant: the experimental system looks like a real winner.&quot;</span><span class="p">)</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">→ Not statistically significant: can&#39;t rule out this result is due to chance.&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Example output with <code>wins=2600</code>, <code>losses=2400</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Win rate: 52.0%
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>p-value: 0.0024
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>95% confidence range: [50.8%, 100%]
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Statistically significant, but the lower bound is close to 50% — a modest win.
+</span></code></pre></div>
+<p class="faq-question">Monitoring the dashboard during the run</p>
+
+<p>The STELLA server dashboard gives an up-to-date view of results. Use it to monitor whether the experiment is running successfully, not to draw premature conclusions.</p>
+<p class="faq-question">What is peeking and why is it bad?</p>
+
+<p>It is tempting to stop an experiment the moment it looks like the candidate is winning. This practice is known as <strong>peeking</strong> and it dramatically increases your risk of declaring a false win. Even an evenly matched experiment will naturally drift back and forth early on and if you happen to check at a moment it looks good and stop there, you'll ship a result that isn't real.</p>
+<p><strong>Do:</strong> Stick strictly to the sample size you planned before launch (the click count from your sample-size planning). Run until you hit it. Then evaluate.</p>
+<p><strong>Don't:</strong> Refresh the dashboard every hour and call it as soon as the chart looks favorable.</p>
+<p class="faq-question">When is early stopping OK?</p>
+
+<p>If the experimental system is performing much weaker than expected: high error rate, severe latency, user complaints, you may safely cancel early to protect the user experience. That's an operational call, not a statistical one. Document why you stopped.</p>
+<hr />
+<h2 id="5-interpret">5. Interpret</h2>
+<p><strong>What you need:</strong> a decision based on win rate, statistical significance and practical impact.</p>
+<p class="faq-question">The experimental system won statistically. Should I ship it?</p>
+
+<p>A statistically significant win isn't automatically a win worth shipping. Ask:</p>
+<ul>
+<li>Is the win rate large enough to justify the operational cost (infra, latency, maintenance)?</li>
+<li>Did wins hold across query types or only on a narrow slice?</li>
+<li>Are there regressions in latency, empty-result rate or diversity?</li>
+</ul>
+<p>A 50.8% win rate can be statistically real with enough traffic, but still barely worth a complex migration.</p>
+<p class="faq-question">The experiment tied. Now what?</p>
+
+<p>Either the change genuinely doesn't matter for user behavior or the lift you were targeting was too small to detect with the traffic you had. Some options are to run longer with a bigger expected lift in mind or try a bolder change.</p>
+<p class="faq-question">The experimental system lost. What do I check first?</p>
+
+<ol>
+<li>Was it actually serving results? (padding / fallback rate)</li>
+<li>Were there presentation differences between baseline and experimental slots?</li>
+<li>Was it a latency issue as slow results get fewer clicks regardless of relevance?</li>
+<li>Is the hypothesis wrong or is the implementation buggy?</li>
+</ol>
+<p>Interleaved testing is one of the most sensitive and efficient tools for evaluating ranking systems. When planned and executed with care, it lets you move with speed and confidence. The core principles are simple:</p>
+<ul>
+<li><strong>Plan rigorously</strong>: Define a clear hypothesis and estimate your sample size before you begin. A week of planning can save a month of wasted traffic.</li>
+<li><strong>Execute with discipline</strong>: Stick to your pre-defined stopping point. Avoid peeking at results early; it undermines the reliability of your test.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
