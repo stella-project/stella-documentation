@@ -21,6 +21,7 @@ Unless explicitly stated otherwise, the same variables apply to both development
 | INTERVAL_DB_CHECK | Time interval in seconds for checking the database for completed sessions that can be sent to the STELLA Server. |
 | SESSION_EXPIRATION | Time in seconds after which an active session is automatically marked as finished. |
 | SESSION_KILL | Maximum lifetime of a session in seconds. After this time, the session is forcefully terminated. This variable is optional. |
+| SYSTEM_TIMEOUT | Time in seconds to wait for a ranking or recommendation system (experimental or baseline) to respond. If the system does not respond in time, the request is treated as a timeout. Default is `3`. |
 | SENDFEEDBACK | Enables or disables sending feedback data to the STELLA Server. |
 | SYSTEMS_CONFIG | JSON configuration describing all experimental systems. Each system must define a type (`ranker` or `recommender`). One system per type must be marked as the baseline using `base: true`. |
 | STELLA_SERVER_ADDRESS | Base URL of the STELLA Server used for submitting session and feedback data. |
